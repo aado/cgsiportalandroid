@@ -1,0 +1,134 @@
+/*login*/
+body {
+  	background-color: #435165;
+}
+.login {
+  	/* width: 400px; */
+	width: 325px;
+  	background-color: #ffffff;
+  	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  	margin: 100px auto;
+}
+.login h1 {
+  	text-align: center;
+  	color: #5b6574;
+  	font-size: 24px;
+  	padding: 20px 0 20px 0;
+  	border-bottom: 1px solid #dee0e4;
+}
+.login form {
+  	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  	padding-top: 20px;
+}
+.login form label {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	width: 50px;
+  	height: 50px;
+  	background-color: #3274d6;
+  	color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"] {
+	  width: 252px;
+	  height: 48px;
+	  border: 1px solid #dee0e4;
+	  margin-bottom: 15px;
+	  padding: 0 5px;
+}
+.login form input[type="submit"] {
+  	width: 100%;
+  	padding: 15px;
+ 	margin-top: 20px;
+  	background-color: #3274d6;
+  	border: 0;
+  	cursor: pointer;
+  	font-weight: bold;
+  	color: #ffffff;
+  	transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+	background-color: #2868c7;
+  	transition: background-color 0.2s;
+}
+
+
+.header_top_menu{
+transition:.6s;
+}
+.menu-scroll .header_top_menu{
+	display: none;
+	transition: .6s;
+}
+
+.menu-scroll{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 300;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	background-color: rgba(51,51,51,0.8);
+	transition: .6s;
+}
+.header .navbar-brand>img{
+	max-width:100%;
+}
+
+.navbar-brand{
+	padding: 0px 15px;
+	width: 153px;
+}
+
+.head_top_social ul li{
+	border-left:1px solid #ff0000;
+	padding:0px 10px;
+}
+
+.head_top_social ul li:last-child{
+	border-right:1px solid #ff0000;
+
+}.head_top_social ul li.top_social a i{
+	color:#ff0000;
+}
+
+
+.navbar-default .navbar-nav>li{
+	border-right: 1px solid #ff0000;
+	width: 185px;
+}
+
+.navbar-default .navbar-nav>li:nth-child(1){
+	border-left:1px solid #ff0000;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: #fff;
+	font-family: 'Calibri';
+	font-size: 1.125rem;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
+	color: #ff0000;
+	background-color:transparent;
+}
+
+.header .navbar-default{
+	background-color: #ff0000;
+	border-color:transparent;
+}
+.header .navbar{
+	min-height: 100px;
+	margin-bottom: 0px;
+	
+
+}
+.slicknav_menu{
+	display: none;
+}
+
+

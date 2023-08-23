@@ -1,0 +1,159 @@
+.active_link {
+    margin-bottom: -18px !important;
+    /* margin-top: -10px; */
+    color: #7ae543 !important;
+    font-weight: bold;
+}
+/* .nav-item:hover {
+    background: cornflowerblue;
+    width: 100% !important;
+} */
+.dt-buttons {
+    position: absolute;
+    right: 0px;
+    top: -60px;
+}
+.dt-button {
+    background-color: #604caf !important;
+    border: none;
+    color: white;
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+}
+.comp_name {
+    text-align: left !important;
+}
+
+span#jobPositionLabel {
+    font-size: 0.6em; 
+    display: block; 
+    margin-left:45px
+}
+
+div#userInfo {
+    margin-top: 37px;
+}
+
+span#jobPositionLabel {
+    font-size: 0.6em; 
+    display: block; 
+    margin-left:0px
+}
+
+.companySelect {
+    position: absolute !important;
+    width: 290px;
+    top: 0px;
+    left: 0px;
+    height: 38px;
+}
+
+#dateRange {
+    width: 440px;
+    position: absolute;
+    margin-bottom: -37px;
+    margin-left: 25%;
+    z-index: 99;
+}
+
+#rtadateRange {
+	width: 440px;
+    position: absolute;
+    margin-bottom: -37px;
+    /* margin-left: 25%; */
+    z-index: 99;
+}
+
+#nameDetails {
+    visibility: hidden;
+    position: absolute;
+}
+
+@media only screen and (max-device-width: 670px) {
+    div#userInfo {
+        margin-top: 37px;
+    }
+
+    #nameDetails {
+        visibility: visible;
+        position: relative;
+    }
+
+	#dateRange {
+        width: 74%;
+        position: absolute;
+        margin-bottom: -37px;
+        margin-left: -11px;
+        z-index: 99;
+        margin-top: 44px;
+    }
+
+	#rtadateRange {
+        width: 74%;
+        position: absolute;
+        margin-bottom: -37px;
+        margin-left: -11px;
+        z-index: 99;
+		margin-top: 44px;
+    }
+
+    #dataTable_filter label input {
+		margin-top: 75px;
+		width: 100% !important;
+		margin-left: 0px;
+		position: relative;
+		left: -17px;
+    }
+
+	#toRTA_filter label input {
+		margin-top: 31px;
+		width: 100% !important;
+		margin-left: 0px;
+		position: relative;
+		left: -15px;
+    }
+
+	#RTAInactive_filter label input {
+		border: 1px solid #aaa;
+		border-radius: 3px;
+		padding: 5px !;
+		background-color: transparent;
+		margin-left: 3px;
+		width: 275px !important;
+		margin-top: 67px;
+	}
+
+   
+    span#jobPositionLabel {
+        font-size: 0.6em; 
+        display: block; 
+        margin-left:0px
+    }
+
+    /* .dt-buttons { */
+        /* position: relative; */
+        /* text-align: center; */
+     /* } */
+
+     #accordionSidebar {
+         margin-left: -8px;
+     }
+
+     /* #accordionSidebar li {
+        margin-left: -15px;
+    } */
+
+    .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        padding: 5px !;
+        background-color: transparent;
+        margin-left: 3px;
+        width: 350px !important;
+    }
+    
+}

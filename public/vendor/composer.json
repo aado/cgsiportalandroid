@@ -1,0 +1,6 @@
+{
+    "require": {
+        "twilio/sdk": "^7.0",
+        "kreait/firebase-php": "^5.19"
+    }
+}
