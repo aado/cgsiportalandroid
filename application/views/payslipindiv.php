@@ -4,20 +4,21 @@
 <link rel="stylesheet" type="text/css" href="<?= site_url('public/css/payslip.css'); ?>">
 
 <?php if(!$verified['otp_verified']) { ?>
-<div class="container-fluid" id="otPContainer">
-	<div class="card w-50 vercard">
+<div class="container-fluid" id="otPContainer" style="margin-top: 40%;
+">
+	<div class="card vercard">
 	<div class="card-body">
-		<p class="card-text" style="font-weight: bold;font-size: 20px;">
+		<p class="card-text text-center" style="font-weight: bold;font-size: 20px;">
 			Verification</p>
 			
 		<form id="frmOTP">
 			<input type="hidden" name="idnumber" id="idnumber" value="<?=$idnumber?>">
-			<p class="card-text">You will get an Verification Code Via Email</p>
+			<p class="card-text text-center">You will get an Verification Code Via Email</p>
 			<p class="card-text"><input type="text" name="otp" id="otp" class="form-control text-center" style="font-size:30px"></p>
-			<span style="display: block;font-size: 12px;padding: 14px;" id="timerLabel">Expire at: <span class="otpcount"></span></span>
-			<span id="res_message" style="display: block; margin-bottom: 10px;"></span>
-			<button type="button" class="btn btn-danger" style="display: none" id="resendVerif"><i class="fa fa-refresh" aria-hidden="true"></i> Resend OTP</button>
-			<button type="submit" class="btn btn-primary w-50" id="verify"><i class="fa fa-check" aria-hidden="true"></i> Verify</button>
+			<span style="display: block;font-size: 12px;padding: 14px; text-align:center" id="timerLabel">Expire at: <span class="otpcount"></span></span>
+			<span id="res_message" style="display: block; margin-bottom: 10px; text-align: center"></span>
+			<button type="button" class="btn btn-danger w-100" style="display: none" id="resendVerif"><i class="fa fa-refresh" aria-hidden="true"></i> Resend OTP</button>
+			<button type="submit" class="btn btn-primary w-100" id="verify"><i class="fa fa-check" aria-hidden="true"></i> Verify</button>
 		</form>
 	</div>
 	</div>
@@ -35,7 +36,7 @@
 					<th>Period</th>
 					<!-- <th>Payroll Cut off</th> -->
 					<!-- <th>Uploaded Date</th> -->
-					<th>View</th>
+					<th style="text-align: center">View</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,10 +47,10 @@
 							echo '<td><span style="font-weight: bold;color: cornflowerblue;">'.date('M d Y', strtotime($payslip['payroll_period'])).'</span><span style="font-size: 10px;
                             opacity: .5; display: block">Cut-off: '.$payslip['payroll_cutoff'].'</span></td>';
 							if($payslip['payroll_period'] == '2023-10-20') {
-								echo '<td><button class="btn btn-primary" data-toggle="modal" data-target="#payslipViewModal" onclick="viewPayslipwithadj('.$payslip['payslip_id'].','.$idnumber.')"><span style="cursor: pointer"><i class="fa fa-eye" aria-hidden="true"></i></span></button><span style="font-size: 10px;
+								echo '<td style="text-align: center"><button class="btn btn-primary" data-toggle="modal" onclick="showPayslipWithAdj('.$payslip['payslip_id'].','.$idnumber.')"><span style="cursor: pointer"><i class="fa fa-eye" aria-hidden="true"></i></span></button><span style="font-size: 10px;
                                 opacity: .5; display: block">Up: '.date('M d Y', strtotime($payslip['created'])).'</span></td>';
 							} else {
-								echo '<td><button class="btn btn-primary" data-toggle="modal" data-target="#payslipViewModal" onclick="viewPayslip('.$payslip['payslip_id'].','.$idnumber.')"><span style="cursor: pointer"><i class="fa fa-eye" aria-hidden="true"></i></span></button><span style="font-size: 10px;
+								echo '<td style="text-align: center"><button class="btn btn-primary" data-toggle="modal" onclick="showPayslip('.$payslip['payslip_id'].','.$idnumber.')"><span style="cursor: pointer"><i class="fa fa-eye" aria-hidden="true"></i></span></button><span style="font-size: 10px;
                                 opacity: .5; display: block">Up: '.date('M d Y', strtotime($payslip['created'])).'</span></td>';
 							}
 							echo '</tr>';
@@ -58,6 +59,435 @@
 				?>
 			</tbody>
 		</table>
+		<span style="text-decoration: underline;color: blue;cursor: pointer;font-weight: 800; display: none; margin-left: 25px;" id="showPayrollbtn" onclick="showPayslipBtn()"> Back </span>				
+		<div id="paySlipDiv" style="display: none; margin-top: 15px;margin-bottom: 23px;">
+					<div class="container" style="margin-top: 10px;">
+						<table style="font-size: 13px; width:100%">
+							<tr>
+								<td>ID NO</td>
+								<td style="font-weight: bold;"><span id="idNumber"></span></td>
+								<!-- <td>ACCT. NO.</td> -->
+								<!-- <td><span id="accntNum" style="font-weight: bold;"></span></td> -->
+							</tr>
+							<tr>
+								<td>NAME</td>
+								<td style="font-weight: bold;"><span id="empName"></span><span style="display: block;font-size: 10px;"><label id="jobDescription"></label></span></td>
+								<td>TIN</td>
+								<td><span id="tinno" style="font-weight: bold;"></span></td>
+							</tr>
+						</table>
+					</div>
+					<div id="payslipContainer">
+						<div style="margin-left: 25px; margin-top: 10px">
+							<span style="font-size: 13px;font-weight: bold;color: blue;" id="previosRatelbl">PREVIOUS RATE</span>
+							<table style="font-size:10px; width:70%" id="previosRateTbl">
+								<thead>
+									<th>BASIC EARNINGS</th>
+									<th></th>
+									<th>RATE</th>
+									<th>AMOUNT</th>
+									<th></th>
+									<th>ADJUSTMENT</th>
+									<th></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Reg Days work</td>
+										<td><span id="regDaysold"></span></td>
+										<td><span style="cursor: pointer" id="basicRateprev"></span></span>
+										</td>
+										<td>
+											<span id="basicPayold"></span>
+										</td>
+										<td><span id="regDays2old"></span></td>
+										<td style="width: 80px;"><span id="regDaysrateold"></span></td>
+										<td><span id="ADJUSTMENTAMTold">0</span></td>
+									</tr>
+									<tr>
+										<td>Reg Overtime</td>
+										<td><span id="regOTold">0</span></td>
+										<td><span id="otRateold"></span></td>
+										<td><span id="regOTAMTold"></span></td>
+										<td><span id="regOT1old">0</span></td>
+										<td><span id="regOTrate_1old"></span></td>
+										<td><span id="regOTAMT_1old">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Duty</td>
+										<td><span id="sunDutyold"></span></td>
+										<td><span id="sunDRateold"></span></td>
+										<td><span id="SUNDUTYAMTold">0</span></td>
+										<td><span id="sunDuty1old">0</span></td>
+										<td><span id="sunDutyrate_1old">3</span></td>
+										<td><span id="SUNDUTYAMT_1old">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun OT</td>
+										<td><span id="SUNOTold"></span></td>
+										<td><span id="sunDOTRateold"></span></td>
+										<td><span id="SUNOTAMTold"></span></td>
+										<td><span id="SUNOT1old">0</span></td>
+										<td><span id="SUNOTRate2old">4</span></td>
+										<td><span id="SUNOTAMOUNTold">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Legal Duty</td>
+										<td><span id="SUNLEGALDUTYold">0</span></td>
+										<td><span id="sunLRateold"></span></td>
+										<td><span id="SUNLEGALAMTold"></span></td>
+										<td><span id="SUNLEGALDUTY1old">0</td>
+										<td><span id="sunLRate_1old">0</span></td>
+										<td><span id="SUNLEGALAMT_1old">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Legal OT</td>
+										<td><span id="SUNLEGALOTold">0</span></td>
+										<td><span id="sunLOTRateold"></span></td>
+										<td><span id="SUNLEGALOTAMTold">0.00</span></td>
+										<td><span id="SUNLEGALOT_1old">0</td>
+										<td><span id="SUNLEGALOTrate_1old"></span></td>
+										<td><span id="SUNLEGALOTAMT_1old"></span></td>
+									</tr>
+									<tr>
+										<td>Spl Duty</td>
+										<td><span id="SPECIALDUTYold">0</span></td>
+										<td><span id="splDutyRateold"></span></td>
+										<td><span id="SPLDUTYAMTold"></span></td>
+										<td><span id="SPECIALDUTY_1old">0</span></td>
+										<td><span id="splDutyRate_1old">7</span></td>
+										<td><span id="SPLDUTYAMT_1old">0</span></td>
+									</tr>
+									<tr>
+										<td>Spl OT</td>
+										<td><span id="SPECIALOTold">0</span></td>
+										<td><span id="splDutyOTRateold"></span></td>
+										<td><span id="SPLOTAMTold"></span></td>
+										<td><span id="SPECIALOT_1old">0</span></td>
+										<td><span id="splDutyOTRate_1old"></span></td>
+										<td><span id="SPLOTAMT_1old"></span></td>
+									</tr>
+									<!-- <tr>
+										<td>RATE ADJ</td>
+										<td>0</td>
+										<td><span id="ADJUSTMENT"></span></td>
+										<td>-</td>
+										<td>0</td>
+										<td><span id="adjustment9">9</span></td>
+										<td><span id="adjustment2">0</span></td>
+									</tr> -->
+									<tr>
+										<td>Spl Sun OT</td>
+										<td><span id="SPLSUNOTold">0</span></td>
+										<td><span id="splSunOtRateold"></span></td>
+										<td><span id="SPLSUNOTAMTold"></span></td>
+										<td><span id="SPLSUNOT_1old">0</span></td>
+										<td><span id="splSunOtRate_1old"></span></td>
+										<td><span id="SPLSUNOTAMT_1old">0</span></td>
+									</tr>
+									<tr>
+										<td>LEGAL HOL DUTY</td>
+										<td><span id="LEGALHOLDUTYold">0</span></td>
+										<td><span id="LEGALDUTYold">0</span></td>
+										<td><span id="LEGALHOLDUTYAMTold1">0</span></td>
+										<td><span id="LEGALHOLDUTY_1old1">0</td>
+										<td><span id="LEGALDUTYRATE_1old1">0</span></td>
+										<td><span id="LEGALHOLDUTYAMT_1old1">0</span></td>
+									</tr>
+									<tr>
+										<td>Legal OT</td>
+										<td><span id="LEGALHOLOTold">0</span></td>
+										<td><span id="legHolyOTRateold">0</span></td>
+										<td><span id="LEGALHOLOTAMTold">0</span></td>
+										<td><span id="LEGALHOLOT_1old1">0</span></td>
+										<td><span id="LEGALHOLOTRATE_1old1">0</span></td>
+										<td><span id="LEGALHOLOTAMT_ 1old1">0</span></td>
+									</tr>
+									<tr>
+										<td>LEGAL PAY\B-DAY PAY</td>
+										<td><span id="LEGALPAYBDAYPAYCountold"></span></td>
+										<td><span id="LEGALPAYBDAYPAYold"></span></td>
+										<td><span id="LEGALPAYBDAYPAYAMTold"></span><span id="LEGALPAYAMTold">0.00</span></td>
+										<td>0</td>
+										<td><span id="LEGALPAYBDAYPAYoldadj">0</span></td>
+										<td><span id="">0.00</span></td>
+									</tr>
+									<tr>
+										<td>Night Premium</td>
+										<td><span id="NPold"></span></td>
+										<td><span id="NPRATEold"></span></td>
+										<td><span id="NPAMTold"></span></td>
+										<td><span id="NP_1old"></span></td>
+										<td><span id="NPRATE_1old"></span></td>
+										<td><span id="NPAMT_1old"></span></td>
+									</tr>
+									<tr>
+										<td>Late</td>
+										<td><span id="lateold"></span></td>
+										<td><span id="lateRateold"></span></td>
+										<td><span id="LATEAMTold"></span></td>
+										<td>0</td>
+										<td><span id="lateRateoldadj"> 0</span></td>
+										<td><span> 0</span></td>
+									</tr>
+									<tr>
+										<td>Absent</td>
+										<td><span id="ABSENTUNDERTIMEold"></span></td>
+										<td><span id="ABSENTRATEold"></span></td>
+										<td><span id="ABSAMOUNTold"></span></td>
+										<td>0</td>
+										<td><span id="ABSENTRATEoldadj">0</span></td>
+										<td><span>0.00</span></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div class="container gPay" style="font-size: 11px;font-weight: 700; margin-left: -20px;" id="grossPrev">
+								<div class="row">
+									<div class="col-4">
+										Prev. Gross Pay
+									</div>
+									<div class="col">
+										<span><span style="position: absolute;"></span>
+										<span style="font-weight: bold; cursor: pointer" id="prevGrossPay"></span></span>
+									</div>
+								</div>
+								<hr />
+							</div>
+							
+							<span  style="font-size: 13px;font-weight: bold;color: blue;" id="newRatelbl">NEW RATE</span>
+							<table style="font-size:10px; width:70%">
+								<thead>
+									<th>BASIC EARNINGS</th>
+									<th></th>
+									<th>RATE</th>
+									<th>AMOUNT</th>
+									<th></th>
+									<th>ADJUSTMENT</th>
+									<th></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Reg Days work</td>
+										<td><span id="regDays"></span></td>
+										<td>
+											<span style="cursor: pointer" id="basicRate"></span></span>
+										</td>
+										<td>
+											<span id="basicPay"></span>
+										</td>
+										<td><span id="regDays2"></span></td>
+										<td style="width: 80px;"><span id="regDaysrate"></span></td>
+										<td><span id="ADJUSTMENTAMT">0</span></td>
+									</tr>
+									<tr>
+										<td>Reg Overtime</td>
+										<td><span id="regOT">0</span></td>
+										<td><span id="otRate"></span></td>
+										<td><span id="regOTAMT"></span></td>
+										<td><span id="regOT1">0</span></td>
+										<td><span id="regOTrate_1"></span></td>
+										<td><span id="regOTAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Duty</td>
+										<td><span id="sunDuty"></span></td>
+										<td><span id="sunDRate"></span></td>
+										<td><span id="SUNDUTYAMT">0</span></td>
+										<td><span id="sunDuty1">0</span></td>
+										<td><span id="sunDutyrate_1">3</span></td>
+										<td><span id="SUNDUTYAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun OT</td>
+										<td><span id="SUNOT"></span></td>
+										<td><span id="sunDOTRate"></span></td>
+										<td><span id="SUNOTAMT"></span></td>
+										<td><span id="SUNOT1">0</span></td>
+										<td><span id="SUNOTRate2">4</span></td>
+										<td><span id="SUNOTAMOUNT">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Legal Duty</td>
+										<td><span id="SUNLEGALDUTY">0</span></td>
+										<td><span id="sunLRate"></span></td>
+										<td><span id="SUNLEGALAMT"></span></td>
+										<td><span id="SUNLEGALDUTY1">0</td>
+										<td><span id="sunLRate_1">0</span></td>
+										<td><span id="SUNLEGALAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>Sun Legal OT</td>
+										<td><span id="SUNLEGALOT">0</span></td>
+										<td><span id="sunLOTRate"></span></td>
+										<td><span id="SUNLEGALOTAMT">0.00</span></td>
+										<td><span id="SUNLEGALOT_1">0</td>
+										<td><span id="SUNLEGALOTrate_1"></span></td>
+										<td><span id="SUNLEGALOTAMT_1"></span></td>
+									</tr>
+									<tr>
+										<td>Spl Duty</td>
+										<td><span id="SPECIALDUTY">0</span></td>
+										<td><span id="splDutyRate"></span></td>
+										<td><span id="SPLDUTYAMT"></span></td>
+										<td><span id="SPECIALDUTY_1">0</span></td>
+										<td><span id="splDutyRate_1">7</span></td>
+										<td><span id="SPLDUTYAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>Spl OT</td>
+										<td><span id="SPECIALOT">0</span></td>
+										<td><span id="splDutyOTRate"></span></td>
+										<td><span id="SPLOTAMT"></span></td>
+										<td><span id="SPECIALOT_1">0</span></td>
+										<td><span id="splDutyOTRate_1"></span></td>
+										<td><span id="SPLOTAMT_1"></span></td>
+									</tr>
+									<tr>
+										<td>Spl Sun OT</td>
+										<td><span id="SPLSUNOT">0</span></td>
+										<td><span id="splSunOtRate"></span></td>
+										<td><span id="SPLSUNOTAMT"></span></td>
+										<td><span id="SPLSUNOT_1">0</span></td>
+										<td><span id="splSunOtRate_1"></span></td>
+										<td><span id="SPLSUNOTAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>LEGAL HOL DUTY</td>
+										<td><span id="LEGALHOLDUTY">0</span></td>
+										<td><span id="LEGALDUTYRATEDDD">20</span></td>
+										<td><span id="LEGALHOLDUTYAMT">0</span></td>
+										<td><span id="LEGALHOLDUTY_11">0</td>
+										<td><span id="LEGALDUTYRATE_11">0</span></td>
+										<td><span id="LEGALHOLDUTYAMT_1">0</span></td>
+									</tr>
+									<tr>
+										<td>Legal OT</td>
+										<td><span id="LEGALHOLOT">0</span></td>
+										<td><span id="legHolyOTRate">0</span></td>
+										<td><span id="LEGALHOLOTAMT">0</span></td>
+										<td><span id="LEGALHOLOT_1">0</span></td>
+										<td><span id="LEGALHOLOTRATE_11">0</span></td>
+										<td><span id="LEGALHOLOTAMT_ 11">0</span></td>
+									</tr>
+									<tr>
+										<td>LEGAL PAY\B-DAY PAY</td>
+										<td><span id="LEGALPAYBDAYPAYCount"></span></td>
+										<td><span id="LEGALPAYBDAYPAYS">0.00</span></td>
+										<td><span id="LEGALPAYBDAYPAYAMT"></span><span id="LEGALPAYAMT">11</span></td>
+										<td>0</td>
+										<td><span id="LEGALPAYBDAYPAYSadj">0</span></td>
+										<td><span id="">0.00</span></td>
+									</tr>
+									<tr>
+										<td>Night Premium</td>
+										<td><span id="NP"></span></td>
+										<td><span id="NPRATE"></span></td>
+										<td><span id="NPAMT"></span></td>
+										<td><span id="NP_1"></span></td>
+										<td><span id="NPRATE_1"></span></td>
+										<td><span id="NPAMT_1"></span></td>
+									</tr>
+									<tr>
+										<td>Late</td>
+										<td><span id="late"></span></td>
+										<td><span id="lateRate"></span></td>
+										<td><span id="LATEAMT"></span></td>
+										<td>0</td>
+										<td><span id="lateRateadj"> 0</span></td>
+										<td><span> 0</span></td>
+									</tr>
+									<tr>
+										<td>Absent</td>
+										<td><span id="ABSENTUNDERTIME"></span></td>
+										<td><span id="ABSENTRATE"></span></td>
+										<td><span id="ABSAMOUNT"></span></td>
+										<td>0</td>
+										<td><span span id="ABSENTRATEadj">0</span></td>
+										<td><span>0.00</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						 <table id="deductions" style="font-size: 10px;float: right;margin-top: -30%;margin-right: 31px;"></table> 
+						
+						<div class="container gPay" style="font-size: 11px;font-weight: 700;">
+							<div class="row" style="margin-top: 1%;">
+								<div class="col-4">
+									Gross Pay
+								</div>
+								<div class="col">
+									<span><span style="position: absolute;"></span>
+									<span style="font-weight: bold; cursor: pointer" id="grossPay"></span></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-4">
+									Monthly Gross Pay
+								</div>
+								<div class="col">
+									<span><span style="position: absolute;"></span>
+									<span style="font-weight: bold; cursor: pointer" id="monthlyGrossPay"></span></span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="container addPay" style="margin-top: 20px;font-size: 11px;">
+							
+							<div class="row">
+								<div class="col">
+									<b style="font-size: medium;">ADD</b>
+								</div>
+								<div class="col">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									 MEAL ALLOW
+								</div>
+								<div class="col">
+									<span id="mealallow">0</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									MOTOR RENTAL/ALLOW
+								</div>
+								<div class="col">
+									<span  id="motorental">0</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									13 MONTH ADJUSTMENT
+								</div>
+								<div class="col">
+									<span  id="13THMONTHADJUSTMENT">0</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									VL AMOUNT
+								</div>
+								<div class="col">
+									<span  id="VLpay">0</span>
+								</div>
+							</div>
+						</div>
+						<div class="netPay">
+							<div class="row" style="font-size:14px">
+								<span><span style="position: absolute;right: 297px;">NET PAY</span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="NETPAY"></span></span>
+							</div>
+						</div>
+						<div style="position: absolute;right: 11px;bottom: 10px;width: 18px;">
+							<div class="row" style="font-size:14px">
+								<i class="fa fa-print" style="font-size: x-large;color: darkslategrey;" aria-hidden="true" onclick="printPayslip()" ></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
 	</div>
 	<div class="modal fade" id="payslipViewModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
