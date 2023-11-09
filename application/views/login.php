@@ -38,11 +38,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             width: 50%;position: absolute;left: 25%;
         }
     }
-    @import "compass/css3";
+    /* @import "compass/css3";
 
 	$color1: #ffffff;
 	$color2: #1cff94;
-	$color3: #1d2123;
+	$color3: #1d2123; */
 
 	.xmas {
 		height: 100%;

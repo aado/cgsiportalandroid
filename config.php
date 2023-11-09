@@ -18,7 +18,7 @@ define('DB_HOSTNAME_IMS', '180.232.152.179:8080');
 define('DB_USERNAME', 'root');
 
 // The password used to connect to the database
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'silence123');
 
 // The name of the database you want to connect to
 define('DB_DATABASE', 'masterlist');

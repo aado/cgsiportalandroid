@@ -73,7 +73,10 @@ class Auth extends CI_Controller
                     $this->session->set_userdata('departmentname', $user['departmentname']);
                     $this->session->set_userdata('email', $user['email']);
                     $this->session->set_userdata('birthdate', isset($user['Birthdate'])?$user['Birthdate']:'');
+                    $this->session->set_userdata('branch', $user['branch']);
+                    $this->session->set_userdata('site', $user['cgsi_site']);
                     $this->session->set_userdata('pass_tag', $user['pass_tag']);
+                    
 
                     if ($remember == '1') {
 						$rememberToken = '';

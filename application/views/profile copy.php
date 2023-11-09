@@ -33,13 +33,11 @@
 }
 
 .text1 {
-    font-family: sans-serif;
-    font-size: 15px;
-    text-align: center;
-    margin-top: -20px;
-    color: #858796;
-    margin-bottom: 15px;
-    font-weight: bold;
+  font-family: sans-serif;
+  font-size: 21px;
+  text-align: center;
+  margin-top: -20px;
+  color: #000;
 }
 
 <?php
@@ -346,7 +344,7 @@ textarea:hover {
 <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'> -->
 <!-- </head> -->
 
-<div class="box" style="margin-top: 40%;">
+<div class="box">
   <div id="overlay">
 	<div class="image">
 	  <div class="trick">
@@ -371,7 +369,7 @@ textarea:hover {
   <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 	<div class="panel-body">
 
-	<table class="table">
+	<table class="table table-striped">
   <!-- <thead>
     <tr>
       <th scope="col">#</th>
@@ -422,7 +420,7 @@ textarea:hover {
   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 	<div class="panel-body">
 
-	<table class="table">
+	<table class="table table-striped">
 		<tbody>
 			<tr>
 			<th scope="row">Department</th>
@@ -438,7 +436,7 @@ textarea:hover {
 	</div>
   </div>
 </div>
-<!-- <div class="panel panel-default">
+<div class="panel panel-default">
   <div class="panel-heading" role="tab" id="headingThree">
 	<h4 class="panel-title">
 	  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -467,7 +465,7 @@ textarea:hover {
 	  
 	</div>
   </div>
-</div> -->
+</div>
 </div>
 
 

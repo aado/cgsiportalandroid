@@ -94,33 +94,82 @@
     </header>
   </div> -->
 </body>
-<style>
-	.navbar {
-		position: fixed !important;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		padding-top: .5rem;
-		padding-bottom: .5rem;
-		width: 100%;
-	}
-</style>
+
 	<!-- Page Wrapper -->
 	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+			<!-- Sidebar - Brand -->
+			<hr class="sidebar-divider" style="margin-top: 45px;">
+
+			<!-- Heading -->
+			<div class="sidebar-heading" style="font-size: 15px;">
+				Menu
+			</div>
+			<?php
+				$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+				$pathFragments = explode('/', $path);
+				$end = end($pathFragments);
+			?>
+
+			<li class="nav-item" id="profile">
+				<a class="nav-link <?php echo ($end == 'Profile')? 'active_link' : 'pb-0'?>" href="<?= site_url('/Profile'); ?>">
+					<i class="fas fa-user" style="color:#10c4a5"></i>
+					<span>Profile</span>
+				</a>
+			</li>
+
+			<?php if($posi_type == '1') {?>
+			<li class="nav-item" id="adminmasterlist">
+				<a class="nav-link <?php echo ($end == 'AdminMasterlist')? 'active_link' : 'pb-0'?>" href="<?= site_url('/AdminMasterlist'); ?>">
+					<i class="fas fa-user" style="color:#10c4a5"></i>
+					<span>Masterlist</span>
+				</a>
+			</li>
+			<?php } ?>
+
+			<?php if ($designationID !== '18') { ?>
+				<li class="nav-item">
+					<a class="nav-link <?php echo ($end == 'PayslipIndiv')? 'active_link' : 'pb-0'?>" href="<?= site_url('/PayslipIndiv'); ?>">
+						<i class="fa fa-address-card" style="color:#10c4a5"></i>
+						<span>Payslip</span>
+					</a>
+				</li>
+			<?php } ?>
+
+			<!-- Nav Item - Logout -->
+			<li class="nav-item">
+				<a class="nav-link pb-0" href="<?= site_url('logout'); ?>" data-toggle="modal" data-target="#logoutModal">
+					<i class="fas fa-fw fa-sign-out-alt" style="color:#7e381b"></i>
+					<span>Logout</span>
+				</a>
+			</li>
+
+			<br>
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
+		</ul>
+		<!-- End of Sidebar -->
+
         
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
         <div id="content">
-            <nav class="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow" style="height: 85px;z-index: 99999;">
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 			<!-- <h4 class="h4 mb-4" style="margin-top: 15px;"><?= ($page['title'] ?? 'Undefined'); ?></h4> -->
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop2" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <!-- <i class="fa fa-bars"></i> -->
-					<img class="img-profile" style="width: 72px;height: 69px;margin-top: -7px;margin-left: -21px;" src="<?= site_url('public/img/cgsi.png'); ?>">
+                    <i class="fa fa-bars"></i>
                 </button>
 
                 <!-- Topbar Navbar -->
@@ -132,23 +181,23 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<div style="margin-left: 15px; margin-bottom: 10px">
 								<div id="userInfo" style="margin-right: 19px;margin-top: 0px;">
-									<!-- <span class="capitalize" style="text-transform: Capitalize;font-size: 12px;font-weight: bold;color: #fff;"><?= ( $fullname ?? 'Guest'); ?></span> -->
+									<span class="capitalize" style="text-transform: Capitalize;font-size: 12px;font-weight: bold;color: #074f9d;"><?= ( $fullname ?? 'Guest'); ?></span>
 
-									<!-- <span style="font-size: 0.6em; display: block; color: #fff"><?= $designation; ?></span> -->
+									<span style="font-size: 0.6em; display: block; color: #6610f2"><?= $designation; ?></span>
 									<!-- <span style="font-size: 0.6em; display: block;"><?= $departmentname; ?></span> -->
 								</div>
 							</div>
 							<div>
 								<?php
-									// $image_url = site_url('public/img/idpicture/'.$idnumber.'.jpg');
-									// $image_type_check = @exif_imagetype($image_url);//Get image type + check if exists
-									// if (strpos($http_response_header[0], "403") || strpos($http_response_header[0], "404") || strpos($http_response_header[0], "302") || strpos($http_response_header[0], "301")) {
-									// 	$empimage = site_url('public/img/idpicture/noimage.jpg');
-									// } else {
-									// 	$empimage = site_url('public/img/idpicture/'.$idnumber.'.jpg');
-									// }
+									$image_url = site_url('public/img/idpicture/'.$idnumber.'.jpg');
+									$image_type_check = @exif_imagetype($image_url);//Get image type + check if exists
+									if (strpos($http_response_header[0], "403") || strpos($http_response_header[0], "404") || strpos($http_response_header[0], "302") || strpos($http_response_header[0], "301")) {
+										$empimage = site_url('public/img/idpicture/noimage.jpg');
+									} else {
+										$empimage = site_url('public/img/idpicture/'.$idnumber.'.jpg');
+									}
 								?>
-								<!-- <img class="img-profile rounded-circle" style="width: 40px;float: left;height: 40px;margin-top: -10px;" src="<?= $empimage ?>"> -->
+								<img class="img-profile rounded-circle" style="width: 40px;float: left;height: 40px;margin-top: -10px;" src="<?= $empimage ?>">
 							</div>
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                 <?php //= ($username ?? 'Guest'); ?>
@@ -172,50 +221,50 @@
     <!-- End of Topbar -->
 	<script>
 		$(document).ready(function(){
-// 			import {MDCTopAppBar} from "@material/top-app-bar";
-// const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
-// topAppBar.setScrollTarget(document.getElementById('main-content'));
-// topAppBar.listen('MDCTopAppBar:nav', () => {
-//   drawer.open = !drawer.open;
-// });
+			import {MDCTopAppBar} from "@material/top-app-bar";
+const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+topAppBar.setScrollTarget(document.getElementById('main-content'));
+topAppBar.listen('MDCTopAppBar:nav', () => {
+  drawer.open = !drawer.open;
+});
 
-// const listEl = document.querySelector('.mdc-drawer .mdc-list');
-// const mainContentEl = document.querySelector('.main-content');
+const listEl = document.querySelector('.mdc-drawer .mdc-list');
+const mainContentEl = document.querySelector('.main-content');
 
-// listEl.addEventListener('click', (event) => {
-//   mainContentEl.querySelector('input, button').focus();
-// });
+listEl.addEventListener('click', (event) => {
+  mainContentEl.querySelector('input, button').focus();
+});
 
-// document.body.addEventListener('MDCDrawer:closed', () => {
-//   mainContentEl.querySelector('input, button').focus();
-// });
+document.body.addEventListener('MDCDrawer:closed', () => {
+  mainContentEl.querySelector('input, button').focus();
+});
 			
-// 			$(".main-menu .submenu").hide(); 
-// 			$('li.main-menu').on('click', function(e) {
-// 				$(this).children('ul').toggle();
-// 				$(this).siblings('li').find('ul').hide();
-// 				e.stopPropagation();
-// 			});
-// 			localStorage.getItem('openMain');
-// 			if (localStorage.getItem('openMain') == 'po') {
-// 				$("li#po").children('ul.submenu').removeAttr('style');
-// 				$("li#voucher").children('ul.submenu').attr('style','display: none');
-// 			} else if (localStorage.getItem('openMain') == 'voucher') {
-// 				$("li#voucher").children('ul.submenu').removeAttr('style');
-// 				$("li#po").children('ul.submenu').attr('style','display: none');
-// 			} else {
-// 				$("li#voucher").children('ul.submenu').attr('style','display: none');
-// 				$("li#po").children('ul.submenu').attr('style','display: none');
-// 			}
-// 			$("#po").click(function() {
-// 				localStorage.setItem('openMain','po');
-// 			});
-// 			$("#voucher").click(function() {
-// 				localStorage.setItem('openMain','voucher');
-// 			});
-// 			$("#memo,#leave,#payroll,#profile").click(function() {
-// 				localStorage.setItem('openMain','nosub');
-// 			});
+			$(".main-menu .submenu").hide(); 
+			$('li.main-menu').on('click', function(e) {
+				$(this).children('ul').toggle();
+				$(this).siblings('li').find('ul').hide();
+				e.stopPropagation();
+			});
+			localStorage.getItem('openMain');
+			if (localStorage.getItem('openMain') == 'po') {
+				$("li#po").children('ul.submenu').removeAttr('style');
+				$("li#voucher").children('ul.submenu').attr('style','display: none');
+			} else if (localStorage.getItem('openMain') == 'voucher') {
+				$("li#voucher").children('ul.submenu').removeAttr('style');
+				$("li#po").children('ul.submenu').attr('style','display: none');
+			} else {
+				$("li#voucher").children('ul.submenu').attr('style','display: none');
+				$("li#po").children('ul.submenu').attr('style','display: none');
+			}
+			$("#po").click(function() {
+				localStorage.setItem('openMain','po');
+			});
+			$("#voucher").click(function() {
+				localStorage.setItem('openMain','voucher');
+			});
+			$("#memo,#leave,#payroll,#profile").click(function() {
+				localStorage.setItem('openMain','nosub');
+			});
 		});
 	</script>
 

@@ -81,7 +81,6 @@ class Payslipindiv extends CI_Controller
 			'designationID' =>  $this->session->designationID,
 			'designationname' => $this->session->designationname
 		];
-		
 		$data = [
 			'page' => [
 				'title' => 'Payslip'
@@ -98,7 +97,7 @@ class Payslipindiv extends CI_Controller
 			'leaveinfo' => $this->Leave_model->leaveInfo($sessionid),
 			'leavetypes' => $this->Leave_model->getLeaveType(),
 			'department' => $this->Cgsi_model->getEmpDepartment(),
-			'payslipList' => $this->Payslip_model->payslipList(),
+			'payslipList' => $this->Payslip_model->payslipList($this->session->branch),
 			'verified' => $this->Payslip_model->checkIfVerified($sessionid)
 		];
 		$this->load->view('template/header',$data);

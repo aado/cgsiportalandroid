@@ -16,9 +16,8 @@ class Payslip_model extends CI_Model
 
     }
 
-	public function payslipList() {
-		$sql = "SELECT *
-		FROM tbl_payslip ORDER BY created DESC";
+	public function payslipList($branch) {
+		$sql = "SELECT * FROM tbl_payslip WHERE branch='".$branch."' ORDER BY created DESC";
 		$query = $this->emsdb->query($sql);
 		return $query->result_array();
 	}

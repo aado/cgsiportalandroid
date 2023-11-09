@@ -55,7 +55,7 @@ class Users_model extends CI_Model
     }
 
     public function getCheckUser($data) {
-        $sql = "SELECT tl.*,users.email, users.Birthdate, td.designationID, td.position_type, td.designationname, tdept.departmentname FROM tbl_logins tl LEFT JOIN users
+        $sql = "SELECT tl.*,users.*, td.designationID, td.position_type, td.designationname, tdept.departmentname FROM tbl_logins tl LEFT JOIN users
         ON tl.UserID = users.emp_id
                 LEFT JOIN tbl_designation td
                     ON tl.designation = td.designationID

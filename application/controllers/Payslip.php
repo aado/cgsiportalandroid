@@ -93,37 +93,37 @@ class Payslip extends CI_Controller
 			'leavetypes' => $this->Leave_model->getLeaveType(),
 			'department' => $this->Cgsi_model->getEmpDepartment(),
 			'payslipList' => $this->Payslip_model->payslipList(),
-			'approverList' => function($leaveid) {	
-				$approver = $this->Leave_model->getApprover($leaveid);
-				if ($approver) {
+			// 'approverList' => function($leaveid) {	
+			// 	$approver = $this->Leave_model->getApprover($leaveid);
+			// 	if ($approver) {
 
-					foreach($approver as $value)
-					{
-						$group[$value['emp_leave_id']][] = $value;
-					}
-					foreach($group as $key => $prover) {
-						$approvers = '';
-						$rejectReason = '';
-						foreach ($prover as $prov) {
-							if ($prov['leave_remarks'] == 'Rejected') {
-								$color = 'red';
-								$rejectReason = '<span style="font-size: 11px;margin-left: 45px;">REASON: '.$prov['reject_reason'].'</span>';
-							} else {
-								$color = 'blue';
-							}
-							$approvers .= '<img width="40" class="rounded-circle" src="'.site_url('public/img/idpicture/'.$prov['approver_emp_id'].'.jpg').'" />
-							<b style="font-size: 14px;">'.$prov['firstname'].' '.$prov['lastname'].'</b>
-							<span style="display: block;margin-left: 45px;font-size: 11px;">'.$prov['designationname'].'&nbsp;|&nbsp;<span style="color: '.$color.'; font-weight: bold">'.$prov['leave_remarks'].' </span>&nbsp;|&nbsp; '.$prov['date_created'].'</span>
-							'.$rejectReason.'';
-						}
-						return $approvers;
-					}
+			// 		foreach($approver as $value)
+			// 		{
+			// 			$group[$value['emp_leave_id']][] = $value;
+			// 		}
+			// 		foreach($group as $key => $prover) {
+			// 			$approvers = '';
+			// 			$rejectReason = '';
+			// 			foreach ($prover as $prov) {
+			// 				if ($prov['leave_remarks'] == 'Rejected') {
+			// 					$color = 'red';
+			// 					$rejectReason = '<span style="font-size: 11px;margin-left: 45px;">REASON: '.$prov['reject_reason'].'</span>';
+			// 				} else {
+			// 					$color = 'blue';
+			// 				}
+			// 				$approvers .= '<img width="40" class="rounded-circle" src="'.site_url('public/img/idpicture/'.$prov['approver_emp_id'].'.jpg').'" />
+			// 				<b style="font-size: 14px;">'.$prov['firstname'].' '.$prov['lastname'].'</b>
+			// 				<span style="display: block;margin-left: 45px;font-size: 11px;">'.$prov['designationname'].'&nbsp;|&nbsp;<span style="color: '.$color.'; font-weight: bold">'.$prov['leave_remarks'].' </span>&nbsp;|&nbsp; '.$prov['date_created'].'</span>
+			// 				'.$rejectReason.'';
+			// 			}
+			// 			return $approvers;
+			// 		}
 
-				} else {
-					return '<span style="color:red">not yet.</span>';
-				}
+			// 	} else {
+			// 		return '<span style="color:red">not yet.</span>';
+			// 	}
 				
-			},
+			// },
 			'approvedDenied' => function($leaveid) {
 				$approver = $this->Leave_model->getApprover($leaveid);
 				if ($approver) {
