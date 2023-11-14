@@ -6,207 +6,200 @@
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
 					<style>
-	@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+						@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-	/* $bg-color: #537ec5;
-	$text-color:  #010038;
-	$inactive-item-color: #537ec5;
-	$active-item-color: #010038; */
+						/* $bg-color: #537ec5;
+						$text-color:  #010038;
+						$inactive-item-color: #537ec5;
+						$active-item-color: #010038; */
 
-	.fa-2x {
-	font-size: 26px;
-	}
+						.fa-2x {
+						font-size: 26px;
+						}
 
-	.menu-container {
-		width: 500px;
-		height: 50px;
-		padding: 4px 20px 0px 20px;
-		/* background: #6200ee; */
-		/* border-radius: 0 0 30px 30px; */
-		z-index: 0;
-		bottom: 0px;
-    	position: fixed;
-		left: 0px;
-	}
+						.menu-container {
+							width: 500px;
+							height: 60px;
+							padding: 4px 20px 0px 20px;
+							box-shadow:  0px 0px 5px #dee3e7, 0px -1px 5px #888;
+							z-index: 99999;
+							bottom: 0px;
+							position: fixed;
+							left: 0px;
+							background: azure;
+						}
 
-	.menu {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		position: relative;
-	}
+						.menu {
+							/* width: 100%; */
+							width: 150%;
+							height: 100%;
+							margin: 0;
+							padding: 0;
+							display: flex;
+							position: relative;
+						}
 
-	input[type="radio"] {
-		display: none;
-	}
+						input[type="radio"] {
+							display: none;
+						}
 
-	label {
-		color: $inactive-item-color;
-		cursor: pointer;
-		z-index: 1;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		width: 25%;
-		transition: 0.25s ease-in;
-	}
+						label {
+							color: $inactive-item-color;
+							cursor: pointer;
+							z-index: 1;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+							width: 25%;
+							transition: 0.25s ease-in;
+						}
 
-	.item {
-		text-align: center;
-	}
+						.item {
+							text-align: center;
+						}
 
-	.item-title {
-		margin-top: 0px;
-		margin-bottom: -6px;
-		color: $text-color;
-		font-weight: 600;
-		font-size: 11px;
-	}
+						.item-title {
+							margin-top: 0px;
+							margin-bottom: -6px;
+							color: gray;
+							font-weight: 600;
+							font-size: 11px;
+						}
 
-	.blob-container {
-		position: absolute;
-		z-index: 0;
-		width: 25%;
-		transition: transform 0.2s ease-out;
-	}
+						.blob-container {
+							position: absolute;
+							z-index: 0;
+							width: 25%;
+							transition: transform 0.2s ease-out;
+						}
 
-	.blob {
-		background: $active-item-color;
-		width: 50px;
-		height: 50px;
-		border-radius: 25px;
-		margin: 2px auto;
-	}
+						.blob {
+							background: $active-item-color;
+							width: 50px;
+							height: 50px;
+							border-radius: 25px;
+							margin: 2px auto;
+						}
 
-	input[type="radio"] {
-		&:checked {
-			& + label {
-				color: #fff;
-			}
-		}
-	}
+						input[type="radio"] {
+							&:checked {
+								& + label {
+									color: blue;
+								}
+							}
+						}
 
-	input[id="radio-0"] {
-		&:checked {
-			~ .blob-container {
-				transform: translateX(0%);
-		.blob {
-			animation: scaleY-0 .2s linear;
-		}
-			}
-		}
-	}
+						input[id="radio-0"] {
+							&:checked {
+								~ .blob-container {
+									transform: translateX(0%);
+							.blob {
+								animation: scaleY-0 .2s linear;
+							}
+								}
+							}
+						}
 
-	input[id="radio-1"] {
-		&:checked {
-			~ .blob-container {
-				transform: translateX(100%);
-		.blob {
-			animation: scaleY-1 .2s linear;
-		}
-			}
-		}
-	}
+						input[id="radio-1"] {
+							&:checked {
+								~ .blob-container {
+									transform: translateX(100%);
+							.blob {
+								animation: scaleY-1 .2s linear;
+							}
+								}
+							}
+						}
 
-	input[id="radio-2"] {
-		&:checked {
-			~ .blob-container {
-				transform: translateX(200%);
-		.blob {
-			animation: scaleY-2 .2s linear;
-		}
-			}
-		}
-	}
+						input[id="radio-2"] {
+							&:checked {
+								~ .blob-container {
+									transform: translateX(200%);
+							.blob {
+								animation: scaleY-2 .2s linear;
+							}
+								}
+							}
+						}
 
-	input[id="radio-3"] {
-		&:checked {
-			~ .blob-container {
-				transform: translateX(300%);
-		.blob {
-			animation: scaleY-3 .2s linear;
-		}
-			}
-		}
-	}
+						input[id="radio-3"] {
+							&:checked {
+								~ .blob-container {
+									transform: translateX(300%);
+							.blob {
+								animation: scaleY-3 .2s linear;
+							}
+								}
+							}
+						}
 
-	@keyframes scaleY-0 {
-	0%  { transform: scale(0);}
-	60%  { transform: scaleY(0.5) translateY(30px); }
-	100% { transform: scaleY(1);}
-	}
+						@keyframes scaleY-0 {
+						0%  { transform: scale(0);}
+						60%  { transform: scaleY(0.5) translateY(30px); }
+						100% { transform: scaleY(1);}
+						}
 
-	@keyframes scaleY-1 {
-	0%  { transform: scale(0);}
-	60%  { transform: scaleY(0.5) translateY(-30px); }
-	100% { transform: scaleY(1);}
-	}
+						@keyframes scaleY-1 {
+						0%  { transform: scale(0);}
+						60%  { transform: scaleY(0.5) translateY(-30px); }
+						100% { transform: scaleY(1);}
+						}
 
-	@keyframes scaleY-2 {
-	0%  { transform: scale(0); }
-	60%  { transform: scaleY(0.5) translateY(30px); }
-	100% { transform: scaleY(1); }
-	}
+						@keyframes scaleY-2 {
+						0%  { transform: scale(0); }
+						60%  { transform: scaleY(0.5) translateY(30px); }
+						100% { transform: scaleY(1); }
+						}
 
-	@keyframes scaleY-3 {
-	0%  { transform: scale(0); }
-	60%  { transform: scaleY(0.5) translateY(-30px); }
-	100% { transform: scaleY(1); }
-	}
+						@keyframes scaleY-3 {
+						0%  { transform: scale(0); }
+						60%  { transform: scaleY(0.5) translateY(-30px); }
+						100% { transform: scaleY(1); }
+						}
+					</style>
+						<div class="menu-container">
+						
+						<div class="menu" id="menu">
+							
+							<!-- <input type="radio" id="radio-0" name="menu" checked onclick="redirectPage(1)"/>
+								<label class="tab" for="radio-0">
+							<div class="item">
+							<img src="<?= site_url('public/img/homegray.png'); ?>" style="width: 29px;height: 33px;">
+								<div class="item-title">Home</div>
+							</div>
+							</label> -->
+							
+							<input type="radio" id="radio-1" name="menu" onclick="redirectPage(2)"/>
+								<label class="tab" for="radio-1">
+							<div class="item">
+								<img src="<?= site_url('public/img/profilegray.png'); ?>" style="width: 29px;height: 33px;">
+								<div class="item-title">Profile</div>
+							</div>
+							</label>
+							
+							<input type="radio" id="radio-2" name="menu" onclick="redirectPage(3)"/>
+									<label class="tab" for="radio-2">
+								<div class="item">
+									<img src="<?= site_url('public/img/payslipgray.png'); ?>" style="width: 30px;height: 33px;">
+									<!-- <i class="fas fa-credit-card fa-2x"></i> -->
+									<div class="item-title">Payslip</div>
+								</div>
+								</label>
+							
+							<!-- <input type="radio" id="radio-3" name="menu" />
+									<label class="tab" for="radio-3">
+								<div class="item">
+									<i class="fas fa-shopping-cart fa-2x"></i>
+									<div class="item-title">Cart</div>
+								</div>
+								</label> -->
+							
+							<div class="blob-container">
+							<div class="blob"></div>
+							</div>
 
-	/* body {
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: $bg-color;
-		font-family: 'Open Sans';
-	} */
-</style>
-<div class="menu-container bg-primary">
-  
-  <div class="menu" id="menu">
-    
-    <input type="radio" id="radio-0" name="menu" checked onclick="redirectPage(1)"/>
-		<label class="tab" for="radio-0">
-      <div class="item">
-        <i class="fas fa-home fa-2x"></i>
-        <div class="item-title">Home</div>
-      </div>
-    </label>
-    
-    <input type="radio" id="radio-1" name="menu" onclick="redirectPage(2)"/>
-		<label class="tab" for="radio-1">
-      <div class="item">
-        <i class="fas fa-user fa-2x"></i>
-        <div class="item-title">Profile</div>
-      </div>
-    </label>
-    
-  <input type="radio" id="radio-2" name="menu" onclick="redirectPage(3)"/>
-		<label class="tab" for="radio-2">
-      <div class="item">
-        <i class="fas fa-credit-card fa-2x"></i>
-        <div class="item-title">Payslip</div>
-      </div>
-    </label>
-    
-      <!-- <input type="radio" id="radio-3" name="menu" />
-		<label class="tab" for="radio-3">
-      <div class="item">
-        <i class="fas fa-shopping-cart fa-2x"></i>
-        <div class="item-title">Cart</div>
-      </div>
-    </label> -->
-    
-    <div class="blob-container">
-      <div class="blob"></div>
-    </div>
-
-  </div>
-</div>
+						</div>
+						</div>
 						<!-- <span>Copyright &copy; CGSI Portal 2023. All rights reserved by <b>CGSI MIS Team</b> </span> -->
 					</div>
 				</div>
@@ -289,14 +282,14 @@
 	});
 
 	function redirectPage(page) {
-		console.log(page);
+		// console.log(page);
 		if(page === 2) {
 			localStorage.setItem('menutab','radio-1');
 			window.location.href = "profile";
 		}
 		if(page === 3) {
 			localStorage.setItem('menutab','radio-2');
-			window.location.href = "PayslipIndiv";
+			window.location.href = "payslipindiv";
 		}
 	}
 	

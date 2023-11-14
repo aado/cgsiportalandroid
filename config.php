@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 // Base Site URL`s (e.g., http://example.com/)
 
-define('BASE_URL', 'http://180.232.152.179:70/cgsiportalandroid/');
+define('BASE_URL', 'http://180.232.152.179:70/cgsiapplication/');
 
 
 // The hostname of your database server
