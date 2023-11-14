@@ -173,7 +173,7 @@
 								<label class="tab" for="radio-1">
 							<div class="item">
 								<img src="<?= site_url('public/img/profilegray.png'); ?>" id="profileIcon" style="width: 29px;height: 33px;">
-								<div class="item-title">Profile</div>
+								<div class="item-title" id="protitle">Profile</div>
 							</div>
 							</label>
 							
@@ -182,7 +182,7 @@
 								<div class="item">
 									<img src="<?= site_url('public/img/payslipgray.png'); ?>"  id="payslipIcon"  style="width: 30px;height: 33px;">
 									<!-- <i class="fas fa-credit-card fa-2x"></i> -->
-									<div class="item-title">Payslip</div>
+									<div class="item-title" id="paytitle">Payslip</div>
 								</div>
 								</label>
 							
@@ -276,10 +276,12 @@
 			$("#userDropdown").html("Profile");
 			$("#userDropdown").attr("style","color: white;font-size: 28px;position: absolute;top: 10px;right: 40%;");
 			$("#profileIcon").attr("src","public/img/profileblue.png");
+			$("#protitle").attr('style','color: blue');
 		} else {
 			$("#userDropdown").html("Payslip");
 			$("#userDropdown").attr("style","color: white;font-size: 28px;position: absolute;top: 10px;right: 40%;");
 			$("#payslipIcon").attr("src","public/img/payslipblue.png");
+			$("#paytitle").attr('style','color: blue');
 		}
 	});
 

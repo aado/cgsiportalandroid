@@ -344,7 +344,7 @@ textarea:hover {
 <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'> -->
 <!-- </head> -->
 
-<div class="box" style="margin-top: 40%;">
+<div class="box" style="margin-top: 30%;">
   <div id="overlay">
 	<div class="image">
 	  <div class="trick">
