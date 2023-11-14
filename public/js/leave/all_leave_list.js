@@ -358,7 +358,7 @@
 	}
 
 	function ImgError(source){
-		source.src = "http://180.232.152.179:70/cgsiapplication/images/idpicture/noimage.jpg";
+		source.src = "http://180.232.152.179:/cgsiapplication/images/idpicture/noimage.jpg";
 		source.onerror = "";
 		return true;
 	}

@@ -1,28 +1,10 @@
 <!-- Begin Page Content -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"> -->
 <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<!-- <link rel="stylesheet" type="text/css" href="<?= site_url('public/css/payslip.css'); ?>"> -->
+<link rel="stylesheet" type="text/css" href="<?= site_url('public/css/payslip.css'); ?>">
 
 <?php if(!$verified['otp_verified']) { ?>
-<div class="container-fluid" id="otPContainer" style="margin-top: 40%;
-">
-	<div class="card vercard">
-	<div class="card-body">
-		<p class="card-text text-center" style="font-weight: bold;font-size: 20px;">
-			Verification</p>
-			
-		<form id="frmOTP">
-			<input type="hidden" name="idnumber" id="idnumber" value="<?=$idnumber?>">
-			<p class="card-text text-center">You will get an Verification Code Via Email</p>
-			<p class="card-text"><input type="text" name="otp" id="otp" class="form-control text-center" style="font-size:30px"></p>
-			<span style="display: block;font-size: 12px;padding: 14px; text-align:center" id="timerLabel">Expire at: <span class="otpcount"></span></span>
-			<span id="res_message" style="display: block; margin-bottom: 10px; text-align: center"></span>
-			<button type="button" class="btn btn-danger w-100" style="display: none" id="resendVerif"><i class="fa fa-refresh" aria-hidden="true"></i> Resend OTP</button>
-			<button type="submit" class="btn btn-primary w-100" id="verify"><i class="fa fa-check" aria-hidden="true"></i> Verify</button>
-		</form>
-	</div>
-	</div>
-</div>
+
 <?php } ?>
 <?php if($verified['otp_verified']) { ?>
 <div class="container-fluid" id="paySlipContainer">
@@ -621,9 +603,9 @@
 <?php } ?>
 <!-- /.container-fluid -->
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+// <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
+// <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/js-base64@2.5.2/base64.min.js"></script>
 <?php //$email?>
 <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>

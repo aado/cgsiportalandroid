@@ -24,9 +24,6 @@
 	<link href="<?= site_url('public/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 	<link href="<?= site_url('public/css/style.css'); ?>" rel="stylesheet">
 
-	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"> -->
-
 	<link href="https://cdn.datatables.net/fixedheader/3.2.1/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css" rel="stylesheet">
@@ -57,42 +54,6 @@
 <body id="page-top">
 
 <body>
-  <!-- <aside class="mdc-drawer mdc-drawer--dismissible">
-    <div class="mdc-drawer__content">
-      <div class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-          <span class="mdc-list-item__text">Inbox</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-          <span class="mdc-list-item__text">Outgoing</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <span class="mdc-list-item__ripple"></span>
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          <span class="mdc-list-item__text">Drafts</span>
-        </a>
-      </div>
-    </div>
-  </aside> -->
-
-  <!-- <div class="mdc-drawer-app-content">
-    <header class="mdc-top-app-bar app-bar" id="app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-          <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" id="sidebarToggleTop">menu</button>
-          <span class="mdc-top-app-bar__title">
-				<div class="sidebar-brand-icon">
-					<img class="img-profile" style="max-width: 15%;margin-left: 30%;margin-top: 20px;margin-bottom: 20px;" src="<?= site_url('public/img/cgsi.png'); ?>">
-				</div>
-		   </span>
-        </section>
-      </div>
-    </header>
-  </div> -->
 </body>
 <style>
 	.navbar {
@@ -157,13 +118,13 @@
                                 ?>
                             </span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             
                             <a class="dropdown-item" href="<?= site_url('logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
-                        </div>
+                        </div> -->
                     </li>
 
                 </ul>
@@ -172,50 +133,6 @@
     <!-- End of Topbar -->
 	<script>
 		$(document).ready(function(){
-// 			import {MDCTopAppBar} from "@material/top-app-bar";
-// const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
-// topAppBar.setScrollTarget(document.getElementById('main-content'));
-// topAppBar.listen('MDCTopAppBar:nav', () => {
-//   drawer.open = !drawer.open;
-// });
-
-// const listEl = document.querySelector('.mdc-drawer .mdc-list');
-// const mainContentEl = document.querySelector('.main-content');
-
-// listEl.addEventListener('click', (event) => {
-//   mainContentEl.querySelector('input, button').focus();
-// });
-
-// document.body.addEventListener('MDCDrawer:closed', () => {
-//   mainContentEl.querySelector('input, button').focus();
-// });
-			
-// 			$(".main-menu .submenu").hide(); 
-// 			$('li.main-menu').on('click', function(e) {
-// 				$(this).children('ul').toggle();
-// 				$(this).siblings('li').find('ul').hide();
-// 				e.stopPropagation();
-// 			});
-// 			localStorage.getItem('openMain');
-// 			if (localStorage.getItem('openMain') == 'po') {
-// 				$("li#po").children('ul.submenu').removeAttr('style');
-// 				$("li#voucher").children('ul.submenu').attr('style','display: none');
-// 			} else if (localStorage.getItem('openMain') == 'voucher') {
-// 				$("li#voucher").children('ul.submenu').removeAttr('style');
-// 				$("li#po").children('ul.submenu').attr('style','display: none');
-// 			} else {
-// 				$("li#voucher").children('ul.submenu').attr('style','display: none');
-// 				$("li#po").children('ul.submenu').attr('style','display: none');
-// 			}
-// 			$("#po").click(function() {
-// 				localStorage.setItem('openMain','po');
-// 			});
-// 			$("#voucher").click(function() {
-// 				localStorage.setItem('openMain','voucher');
-// 			});
-// 			$("#memo,#leave,#payroll,#profile").click(function() {
-// 				localStorage.setItem('openMain','nosub');
-// 			});
 		});
 	</script>
 
