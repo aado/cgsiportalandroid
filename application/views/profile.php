@@ -54,10 +54,8 @@
 
 .image {
   text-align: center;
-  width: 200px;
-  /* Container's dimensions */
-  
-  height: 200px;
+	width: 170px;
+  height: 160px;
   -webkit-border-radius: 75%;
   -moz-border-radius: 75%;
   box-shadow: 0 0 0 1px #eee;

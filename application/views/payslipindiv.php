@@ -188,6 +188,160 @@
 												<div class="panel-body">
 													<p class="row">
 													<div style="margin-top: 10px">
+													<span  style="font-size: 13px;font-weight: bold;color: blue;" id="newRatelbl">NEW RATE</span>
+														<table style="font-size:14px;" class="table table-borderless">
+															<thead>
+																<th>EARNINGS<span style="display: block;font-size: 10px;color: blue;">NO</span><span style="display: block;font-size: 10px;color: blue;">ADJ NO</span></th>
+																<!-- <th></th> -->
+																<th>RATE<span style="display: block;font-size: 10px;color: blue;">AMOUNT</span><span style="display: block;font-size: 10px;color: blue;">ADJ AMT</span></th>
+																<!-- <th>AMOUNT</th>
+																<th></th>
+																<th>ADJUSTMENT</th>
+																<th></th> -->
+															</thead>
+															<tbody>
+																<tr>
+																	<td>Reg Days work <span id="regDays"  style="display: block;color: blue; font-size: smaller;"></span><span id="regDays2" style="display: block; font-size: smaller; color: blue"></span></td>
+																	<!-- <td></td> -->
+																	<td>
+																		<span style="cursor: pointer" id="basicRate"></span><span id="basicPay" style="display: block;color: blue;font-size: smaller;"></span><span id="regDaysrate" style="display: block;"></span><span id="ADJUSTMENTAMT"  style="display: block;color: blue; font-size: smaller">0</span></span>
+																	</td>
+																	<!-- <td>
+																		<span id="basicPay"></span>
+																	</td>
+																	<td><span id="regDays2" style="display: block; font-size: smaller;"></span></td>
+																	<td style="width: 80px;"><span id="regDaysrate"></span><span id="ADJUSTMENTAMT">0</span></td>
+																	<!-- <td><span id="ADJUSTMENTAMT">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Reg Overtime<span id="regOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="regOT">0</span></td> -->
+																	<td><span id="otRate"></span><span id="regOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="regOTAMT"></span></td>
+																	<td><span id="regOT1">0</span></td>
+																	<td><span id="regOTrate_1"></span></td>
+																	<td><span id="regOTAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Sun Duty<span id="sunDuty" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="sunDuty"></span></td> -->
+																	<td><span id="sunDRate"></span><span id="SUNDUTYAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
+																	<!-- <td><span id="SUNDUTYAMT">0</span></td>
+																	<td><span id="sunDuty1">0</span></td>
+																	<td><span id="sunDutyrate_1">3</span></td>
+																	<td><span id="SUNDUTYAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Sun OT<span id="SUNOT" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="SUNOT"></span></td> -->
+																	<td><span id="sunDOTRate"></span><span id="SUNOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="SUNOTAMT"></span></td>
+																	<td><span id="SUNOT1">0</span></td>
+																	<td><span id="SUNOTRate2">4</span></td>
+																	<td><span id="SUNOTAMOUNT">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Sun Legal Duty<span id="SUNLEGALDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="SUNLEGALDUTY">0</span></td> -->
+																	<td><span id="sunLRate"></span><span id="SUNLEGALAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="SUNLEGALAMT"></span></td>
+																	<td><span id="SUNLEGALDUTY1">0</td>
+																	<td><span id="sunLRate_1">0</span></td>
+																	<td><span id="SUNLEGALAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Sun Legal OT<span id="SUNLEGALOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="SUNLEGALOT">0</span></td> -->
+																	<td><span id="sunLOTRate"></span><span id="SUNLEGALOTAMT" style="display: block;color: blue;font-size: smaller;">0.00</span></td>
+																	<!-- <td><span id="SUNLEGALOTAMT">0.00</span></td>
+																	<td><span id="SUNLEGALOT_1">0</td>
+																	<td><span id="SUNLEGALOTrate_1"></span></td>
+																	<td><span id="SUNLEGALOTAMT_1"></span></td> -->
+																</tr>
+																<tr>
+																	<td>Spl Duty<span id="SPECIALDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="SPECIALDUTY">0</span></td> -->
+																	<td><span id="splDutyRate"></span><span id="SPLDUTYAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="SPLDUTYAMT"></span></td>
+																	<td><span id="SPECIALDUTY_1">0</span></td>
+																	<td><span id="splDutyRate_1">7</span></td>
+																	<td><span id="SPLDUTYAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Spl OT<span id="SPECIALOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="SPECIALOT">0</span></td> -->
+																	<td><span id="splDutyOTRate"></span><span id="SPLOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="SPLOTAMT"></span></td>
+																	<td><span id="SPECIALOT_1">0</span></td>
+																	<td><span id="splDutyOTRate_1"></span></td>
+																	<td><span id="SPLOTAMT_1"></span></td> -->
+																</tr>
+																<tr>
+																	<td>Spl Sun OT<span id="SPLSUNOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="SPLSUNOT">0</span></td> -->
+																	<td><span id="splSunOtRate"></span><span id="SPLSUNOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="SPLSUNOTAMT"></span></td>
+																	<td><span id="SPLSUNOT_1">0</span></td>
+																	<td><span id="splSunOtRate_1"></span></td>
+																	<td><span id="SPLSUNOTAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>LEGAL HOL DUTY<span id="LEGALHOLDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="LEGALHOLDUTY">0</span></td> -->
+																	<td><span id="LEGALDUTYRATEDDD">20</span><span id="LEGALHOLDUTYAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
+																	<!-- <td><span id="LEGALHOLDUTYAMT">0</span></td>
+																	<td><span id="LEGALHOLDUTY_11">0</td>
+																	<td><span id="LEGALDUTYRATE_11">0</span></td>
+																	<td><span id="LEGALHOLDUTYAMT_1">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Legal OT<span id="LEGALHOLOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
+																	<!-- <td><span id="LEGALHOLOT">0</span></td> -->
+																	<td><span id="legHolyOTRate">0</span><span id="LEGALHOLOTAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
+																	<!-- <td><span id="LEGALHOLOTAMT">0</span></td>
+																	<td><span id="LEGALHOLOT_1">0</span></td>
+																	<td><span id="LEGALHOLOTRATE_11">0</span></td>
+																	<td><span id="LEGALHOLOTAMT_ 11">0</span></td> -->
+																</tr>
+																<tr>
+																	<td>LEGAL PAY\B-DAY PAY<span id="LEGALPAYBDAYPAYCount" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="LEGALPAYBDAYPAYCount"></span></td> -->
+																	<td><span id="LEGALPAYBDAYPAYS">0.00</span><span id="LEGALPAYBDAYPAYAMT" style="display: block;color: blue;font-size: smaller;"></span><span id="LEGALPAYAMT" style="display: block;color: blue;font-size: smaller;">11</span></td>
+																	<!-- <td><span id="LEGALPAYBDAYPAYAMT"></span><span id="LEGALPAYAMT">11</span></td>
+																	<td>0</td>
+																	<td><span id="LEGALPAYBDAYPAYSadj">0</span></td>
+																	<td><span id="">0.00</span></td> -->
+																</tr>
+																<tr>
+																	<td>Night Premium<span id="NP" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="NP"></span></td> -->
+																	<td><span id="NPRATE"></span><span id="NPAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="NPAMT"></span></td>
+																	<td><span id="NP_1"></span></td>
+																	<td><span id="NPRATE_1"></span></td>
+																	<td><span id="NPAMT_1"></span></td> -->
+																</tr>
+																<tr>
+																	<td>Late<span id="late" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="late"></span></td> -->
+																	<td><span id="lateRate"></span><span id="LATEAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="LATEAMT"></span></td>
+																	<td>0</td>
+																	<td><span id="lateRateadj"> 0</span></td>
+																	<td><span> 0</span></td> -->
+																</tr>
+																<tr>
+																	<td>Absent<span id="ABSENTUNDERTIME" style="display: block;color: blue; font-size: smaller;;"></span></td>
+																	<!-- <td><span id="ABSENTUNDERTIME"></span></td> -->
+																	<td><span id="ABSENTRATE"></span><span id="ABSAMOUNT" style="display: block;color: blue;font-size: smaller;"></span></td>
+																	<!-- <td><span id="ABSAMOUNT"></span></td>
+																	<td>0</td>
+																	<td><span span id="ABSENTRATEadj">0</span></td>
+																	<td><span>0.00</span></td> -->
+																</tr>
+															</tbody>
+														</table>
+
 														<span style="font-weight: bold;color: blue;" id="previosRatelbl">PREVIOUS RATE</span>
 														<!-- margin-left: -25px !important; -->
 														<table class="table table-borderless" style="font-size:14px;" id="previosRateTbl"> 
@@ -342,159 +496,6 @@
 															</tbody>
 														</table>
 														
-														<span  style="font-size: 13px;font-weight: bold;color: blue;" id="newRatelbl">NEW RATE</span>
-														<table style="font-size:14px;" class="table table-borderless">
-															<thead>
-																<th>EARNINGS<span style="display: block;font-size: 10px;color: blue;">NO</span><span style="display: block;font-size: 10px;color: blue;">ADJ NO</span></th>
-																<!-- <th></th> -->
-																<th>RATE<span style="display: block;font-size: 10px;color: blue;">AMOUNT</span><span style="display: block;font-size: 10px;color: blue;">ADJ AMT</span></th>
-																<!-- <th>AMOUNT</th>
-																<th></th>
-																<th>ADJUSTMENT</th>
-																<th></th> -->
-															</thead>
-															<tbody>
-																<tr>
-																	<td>Reg Days work <span id="regDays"  style="display: block;color: blue; font-size: smaller;"></span><span id="regDays2" style="display: block; font-size: smaller; color: blue"></span></td>
-																	<!-- <td></td> -->
-																	<td>
-																		<span style="cursor: pointer" id="basicRate"></span><span id="basicPay" style="display: block;color: blue;font-size: smaller;"></span><span id="regDaysrate" style="display: block;"></span><span id="ADJUSTMENTAMT"  style="display: block;color: blue; font-size: smaller">0</span></span>
-																	</td>
-																	<!-- <td>
-																		<span id="basicPay"></span>
-																	</td>
-																	<td><span id="regDays2" style="display: block; font-size: smaller;"></span></td>
-																	<td style="width: 80px;"><span id="regDaysrate"></span><span id="ADJUSTMENTAMT">0</span></td>
-																	<!-- <td><span id="ADJUSTMENTAMT">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Reg Overtime<span id="regOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="regOT">0</span></td> -->
-																	<td><span id="otRate"></span><span id="regOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="regOTAMT"></span></td>
-																	<td><span id="regOT1">0</span></td>
-																	<td><span id="regOTrate_1"></span></td>
-																	<td><span id="regOTAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Sun Duty<span id="sunDuty" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="sunDuty"></span></td> -->
-																	<td><span id="sunDRate"></span><span id="SUNDUTYAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
-																	<!-- <td><span id="SUNDUTYAMT">0</span></td>
-																	<td><span id="sunDuty1">0</span></td>
-																	<td><span id="sunDutyrate_1">3</span></td>
-																	<td><span id="SUNDUTYAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Sun OT<span id="SUNOT" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="SUNOT"></span></td> -->
-																	<td><span id="sunDOTRate"></span><span id="SUNOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="SUNOTAMT"></span></td>
-																	<td><span id="SUNOT1">0</span></td>
-																	<td><span id="SUNOTRate2">4</span></td>
-																	<td><span id="SUNOTAMOUNT">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Sun Legal Duty<span id="SUNLEGALDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="SUNLEGALDUTY">0</span></td> -->
-																	<td><span id="sunLRate"></span><span id="SUNLEGALAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="SUNLEGALAMT"></span></td>
-																	<td><span id="SUNLEGALDUTY1">0</td>
-																	<td><span id="sunLRate_1">0</span></td>
-																	<td><span id="SUNLEGALAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Sun Legal OT<span id="SUNLEGALOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="SUNLEGALOT">0</span></td> -->
-																	<td><span id="sunLOTRate"></span><span id="SUNLEGALOTAMT" style="display: block;color: blue;font-size: smaller;">0.00</span></td>
-																	<!-- <td><span id="SUNLEGALOTAMT">0.00</span></td>
-																	<td><span id="SUNLEGALOT_1">0</td>
-																	<td><span id="SUNLEGALOTrate_1"></span></td>
-																	<td><span id="SUNLEGALOTAMT_1"></span></td> -->
-																</tr>
-																<tr>
-																	<td>Spl Duty<span id="SPECIALDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="SPECIALDUTY">0</span></td> -->
-																	<td><span id="splDutyRate"></span><span id="SPLDUTYAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="SPLDUTYAMT"></span></td>
-																	<td><span id="SPECIALDUTY_1">0</span></td>
-																	<td><span id="splDutyRate_1">7</span></td>
-																	<td><span id="SPLDUTYAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Spl OT<span id="SPECIALOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="SPECIALOT">0</span></td> -->
-																	<td><span id="splDutyOTRate"></span><span id="SPLOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="SPLOTAMT"></span></td>
-																	<td><span id="SPECIALOT_1">0</span></td>
-																	<td><span id="splDutyOTRate_1"></span></td>
-																	<td><span id="SPLOTAMT_1"></span></td> -->
-																</tr>
-																<tr>
-																	<td>Spl Sun OT<span id="SPLSUNOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="SPLSUNOT">0</span></td> -->
-																	<td><span id="splSunOtRate"></span><span id="SPLSUNOTAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="SPLSUNOTAMT"></span></td>
-																	<td><span id="SPLSUNOT_1">0</span></td>
-																	<td><span id="splSunOtRate_1"></span></td>
-																	<td><span id="SPLSUNOTAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>LEGAL HOL DUTY<span id="LEGALHOLDUTY" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="LEGALHOLDUTY">0</span></td> -->
-																	<td><span id="LEGALDUTYRATEDDD">20</span><span id="LEGALHOLDUTYAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
-																	<!-- <td><span id="LEGALHOLDUTYAMT">0</span></td>
-																	<td><span id="LEGALHOLDUTY_11">0</td>
-																	<td><span id="LEGALDUTYRATE_11">0</span></td>
-																	<td><span id="LEGALHOLDUTYAMT_1">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Legal OT<span id="LEGALHOLOT" style="display: block;color: blue; font-size: smaller;;">0</span></td>
-																	<!-- <td><span id="LEGALHOLOT">0</span></td> -->
-																	<td><span id="legHolyOTRate">0</span><span id="LEGALHOLOTAMT" style="display: block;color: blue;font-size: smaller;">0</span></td>
-																	<!-- <td><span id="LEGALHOLOTAMT">0</span></td>
-																	<td><span id="LEGALHOLOT_1">0</span></td>
-																	<td><span id="LEGALHOLOTRATE_11">0</span></td>
-																	<td><span id="LEGALHOLOTAMT_ 11">0</span></td> -->
-																</tr>
-																<tr>
-																	<td>LEGAL PAY\B-DAY PAY<span id="LEGALPAYBDAYPAYCount" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="LEGALPAYBDAYPAYCount"></span></td> -->
-																	<td><span id="LEGALPAYBDAYPAYS">0.00</span><span id="LEGALPAYBDAYPAYAMT" style="display: block;color: blue;font-size: smaller;"></span><span id="LEGALPAYAMT" style="display: block;color: blue;font-size: smaller;">11</span></td>
-																	<!-- <td><span id="LEGALPAYBDAYPAYAMT"></span><span id="LEGALPAYAMT">11</span></td>
-																	<td>0</td>
-																	<td><span id="LEGALPAYBDAYPAYSadj">0</span></td>
-																	<td><span id="">0.00</span></td> -->
-																</tr>
-																<tr>
-																	<td>Night Premium<span id="NP" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="NP"></span></td> -->
-																	<td><span id="NPRATE"></span><span id="NPAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="NPAMT"></span></td>
-																	<td><span id="NP_1"></span></td>
-																	<td><span id="NPRATE_1"></span></td>
-																	<td><span id="NPAMT_1"></span></td> -->
-																</tr>
-																<tr>
-																	<td>Late<span id="late" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="late"></span></td> -->
-																	<td><span id="lateRate"></span><span id="LATEAMT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="LATEAMT"></span></td>
-																	<td>0</td>
-																	<td><span id="lateRateadj"> 0</span></td>
-																	<td><span> 0</span></td> -->
-																</tr>
-																<tr>
-																	<td>Absent<span id="ABSENTUNDERTIME" style="display: block;color: blue; font-size: smaller;;"></span></td>
-																	<!-- <td><span id="ABSENTUNDERTIME"></span></td> -->
-																	<td><span id="ABSENTRATE"></span><span id="ABSAMOUNT" style="display: block;color: blue;font-size: smaller;"></span></td>
-																	<!-- <td><span id="ABSAMOUNT"></span></td>
-																	<td>0</td>
-																	<td><span span id="ABSENTRATEadj">0</span></td>
-																	<td><span>0.00</span></td> -->
-																</tr>
-															</tbody>
-														</table>
 													</div>
 													</p>
 												</div>
@@ -511,7 +512,7 @@
 											</div>
 											<div id="collapseThree" class="panel-collapse collapse shadow" role="tabpanel" aria-labelledby="headingThree">
 												<div class="panel-body">
-													<table collspading="0" class="table table-borderless" id="deductions" style="width: 100%;font-size: 14px;"></table> 
+													<table collspading="0" class="table table-borderless" id="deductions" style="font-size: 14px;"></table> 
 												</div>
 											</div>
 										</div>
@@ -527,46 +528,37 @@
 											<div id="collapseTwo" class="panel-collapse collapse shadow" role="tabpanel" aria-labelledby="headingTwo">
 												<div class="panel-body">
 													<p>
-														<div class="container addPay" style="margin-top: 20px;font-size: 14px;">
-															<div class="row">
-																<div class="col">
-																	<b style="font-size: medium;">ADD</b>
-																</div>
-																<div class="col">
-																</div>
+														<div class="container addPay row" style="margin-top: 20px;font-size: 14px;">
+														<!-- <div class="row">
+															<div class="col">
+																<b style="font-size: medium;">ADD</b>
 															</div>
-															<div class="row">
-																<div class="col">
-																	MEAL ALLOW
-																</div>
-																<div class="col">
-																	<span id="mealallow">0</span>
-																</div>
+															<div class="col">
 															</div>
-															<div class="row">
-																<div class="col">
-																	MOTOR RENTAL/ALLOW
-																</div>
-																<div class="col">
-																	<span  id="motorental">0</span>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col">
-																	13 MONTH ADJUSTMENT
-																</div>
-																<div class="col">
-																	<span  id="13THMONTHADJUSTMENT">0</span>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col">
-																	VL AMOUNT
-																</div>
-																<div class="col">
-																	<span  id="VLpay">0</span>
-																</div>
-															</div>
+														</div> -->
+														<table class="table table-borderless">
+															<thead>
+																<th colspan="2" style="text-center">ADDITIONAL</th>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>MEAL ALLOW</td>
+																	<td><span id="mealallow">0</span></td>
+																</tr>
+																<tr>
+																	<td>MOTOR RENTAL/ALLOW</td>
+																	<td><span  id="motorental">0</span></td>
+																</tr>
+																<tr>
+																	<td>13 MONTH ADJUSTMENT</td>
+																	<td><span id="13THMONTHADJUSTMENT">0</span></td>
+																</tr>
+																<tr>
+																	<td>VL AMOUNT</td>
+																	<td><span id="VLpay">0</span></td>
+																</tr>
+															</tbody>
+														</table>
 														</div>
 													</p>
 												</div>
@@ -584,20 +576,16 @@
 											<div id="collapseFour" class="panel-collapse collapse shadow" role="tabpanel" aria-labelledby="headingFour">
 												<div class="panel-body">
 													<p class="row">
-														<div class="container gPay" style="font-size: 11px;font-weight: 700;" id="grossPrev">
-															<div class="row">
-																<div class="col-4">
-																	Prev. Gross Pay
-																</div>
-																<div class="col">
-																	<span><span style="position: absolute;"></span>
-																	<span style="font-weight: bold; cursor: pointer" id="prevGrossPay"></span></span>
+														<!-- <div class="container gPay" style="font-size: 11px;font-weight: 700;" id="grossPrev">
+															<div class="prgpay">
+																<div class="row" style="font-size:14px">
+																	<span><span style="right: 297px;">PREV. GROSS PAY</span><span style="cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="prevGrossPay"></span></span>
 																</div>
 															</div>
-														</div>
+														</div> -->
 														<div class="gPay">
 															<div class="row" style="font-size:14px">
-																<span><span style="right: 297px;">GROSS PAY</span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="grossPay"></span></span>
+																<span><span style="right: 297px;">GROSS PAY</span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="grossPayAll">d</span></span>
 															</div>
 														</div>
 														<div class="netPay">

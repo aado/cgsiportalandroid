@@ -172,7 +172,7 @@
 							<input type="radio" id="radio-1" name="menu" onclick="redirectPage(2)"/>
 								<label class="tab" for="radio-1">
 							<div class="item">
-								<img src="<?= site_url('public/img/profilegray.png'); ?>" style="width: 29px;height: 33px;">
+								<img src="<?= site_url('public/img/profilegray.png'); ?>" id="profileIcon" style="width: 29px;height: 33px;">
 								<div class="item-title">Profile</div>
 							</div>
 							</label>
@@ -180,7 +180,7 @@
 							<input type="radio" id="radio-2" name="menu" onclick="redirectPage(3)"/>
 									<label class="tab" for="radio-2">
 								<div class="item">
-									<img src="<?= site_url('public/img/payslipgray.png'); ?>" style="width: 30px;height: 33px;">
+									<img src="<?= site_url('public/img/payslipgray.png'); ?>"  id="payslipIcon"  style="width: 30px;height: 33px;">
 									<!-- <i class="fas fa-credit-card fa-2x"></i> -->
 									<div class="item-title">Payslip</div>
 								</div>
@@ -275,9 +275,11 @@
 		if (tab == 'radio-1') {
 			$("#userDropdown").html("Profile");
 			$("#userDropdown").attr("style","color: white;font-size: 28px;position: absolute;top: 10px;right: 40%;");
+			$("#profileIcon").attr("src","public/img/profileblue.png");
 		} else {
 			$("#userDropdown").html("Payslip");
 			$("#userDropdown").attr("style","color: white;font-size: 28px;position: absolute;top: 10px;right: 40%;");
+			$("#payslipIcon").attr("src","public/img/payslipblue.png");
 		}
 	});
 

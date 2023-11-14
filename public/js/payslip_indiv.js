@@ -182,122 +182,122 @@ function verifyCode() {
 	});
 }
 
-function showbasicRate(e) {
-	$("#basicRate").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;margin-top: -8px;');
-	$(e).removeAttr('style').attr('style','color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hidesbasicRate(this)');
-}
+// function showbasicRate(e) {
+// 	$("#basicRate").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;margin-top: -8px;');
+// 	$(e).removeAttr('style').attr('style','color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hidesbasicRate(this)');
+// }
 
-function hidesbasicRate(e) {
-	$("#basicRate").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showbasicRate(this)');
-}
+// function hidesbasicRate(e) {
+// 	$("#basicRate").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showbasicRate(this)');
+// }
 
-function showbasicRatenew(e) {
-	$("#basicRatenew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;margin-top: -8px;');
-	$(e).removeAttr('style').attr('style','color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hidesbasicRatenew(this)');
-}
+// function showbasicRatenew(e) {
+// 	$("#basicRatenew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;margin-top: -8px;');
+// 	$(e).removeAttr('style').attr('style','color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hidesbasicRatenew(this)');
+// }
 
-function hidesbasicRatenew(e) {
-	$("#basicRatenew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showbasicRatenew(this)');
-}
-
-
-function showbasicPay(e) {
-	$("#basicPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px; margin-top: -8px;');
-	$(e).removeAttr('style').attr('style','color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hidebasicPay(this)');
-}
-
-function hidebasicPay(e) {
-	$("#basicPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showbasicPay(this)');
-}
-
-function showbasicPaynew(e) {
-	$("#basicPaynew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px; margin-top: -8px;');
-	$(e).removeAttr('style').attr('style','color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hidebasicPaynew(this)');
-}
-
-function hidebasicPaynew(e) {
-	$("#basicPaynew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showbasicPaynew(this)');
-}
+// function hidesbasicRatenew(e) {
+// 	$("#basicRatenew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showbasicRatenew(this)');
+// }
 
 
-function showNetPay(e) {
-	$("#NETPAY").removeAttr('style').attr('style','margin-left: 126px; font-weight: bold; padding: 8px;').addClass('netPayVal');
-	$(e).removeAttr('style').attr('style','font-size: 20px;color: red; margin-left: 24px');
-	$(e).attr('class','fa fa-money-bill billiconMob');
-	$(e).attr('onclick','hideNetPay(this)');
-}
+// function showbasicPay(e) {
+// 	$("#basicPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px; margin-top: -8px;');
+// 	$(e).removeAttr('style').attr('style','color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hidebasicPay(this)');
+// }
 
-function hideNetPay(e) {
-	$("#NETPAY").removeAttr('style').attr('style','margin-left: 126px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left: 230px; font-size: 20px;color: blue');
-	$(e).attr('class','fa fa-money-bill billicon');
-	$(e).attr('onclick','showNetPay(this)');
-}
+// function hidebasicPay(e) {
+// 	$("#basicPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showbasicPay(this)');
+// }
 
+// function showbasicPaynew(e) {
+// 	$("#basicPaynew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px; margin-top: -8px;');
+// 	$(e).removeAttr('style').attr('style','color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hidebasicPaynew(this)');
+// }
 
-function showGrossPay(e) {
-	$("#grossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;');
-	$(e).removeAttr('style').attr('style','font-size: 20px;color: red; margin-left: 9px');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hideGrossPay(this)');
-}
-
-function hideGrossPay(e) {
-	$("#grossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showGrossPay(this)');
-}
-
-
-function showPrevGrossPay(e) {
-	$("#prevGrossPay").removeAttr('style').attr('style','margin-left: 9px; font-weight: bold; padding: 8px;');
-	$(e).removeAttr('style').attr('style','font-size: 20px;color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hideshowPrevGrossPay(this)');
-}
-
-function hideshowPrevGrossPay(e) {
-	$("#prevGrossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showPrevGrossPay(this)');
-}
+// function hidebasicPaynew(e) {
+// 	$("#basicPaynew").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left:0px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showbasicPaynew(this)');
+// }
 
 
-function showmonthlyGrossPay(e) {
-	$("#monthlyGrossPay").removeAttr('style').attr('style','margin-left: 9px; font-weight: bold; padding: 8px;');
-	$(e).removeAttr('style').attr('style','font-size: 20px;color: red');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','hidesmonthlyGrossPay(this)');
-}
+// function showNetPay(e) {
+// 	$("#NETPAY").removeAttr('style').attr('style','margin-left: 126px; font-weight: bold; padding: 8px;').addClass('netPayVal');
+// 	$(e).removeAttr('style').attr('style','font-size: 20px;color: red; margin-left: 24px');
+// 	$(e).attr('class','fa fa-money-bill billiconMob');
+// 	$(e).attr('onclick','hideNetPay(this)');
+// }
 
-function hidesmonthlyGrossPay(e) {
-	$("#monthlyGrossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
-	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
-	$(e).attr('class','fa fa-money-bill');
-	$(e).attr('onclick','showmonthlyGrossPay(this)');
-}
+// function hideNetPay(e) {
+// 	$("#NETPAY").removeAttr('style').attr('style','margin-left: 126px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left: 230px; font-size: 20px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill billicon');
+// 	$(e).attr('onclick','showNetPay(this)');
+// }
+
+
+// function showGrossPay(e) {
+// 	$("#grossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; padding: 8px;');
+// 	$(e).removeAttr('style').attr('style','font-size: 20px;color: red; margin-left: 9px');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hideGrossPay(this)');
+// }
+
+// function hideGrossPay(e) {
+// 	$("#grossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showGrossPay(this)');
+// }
+
+
+// function showPrevGrossPay(e) {
+// 	$("#prevGrossPay").removeAttr('style').attr('style','margin-left: 9px; font-weight: bold; padding: 8px;');
+// 	$(e).removeAttr('style').attr('style','font-size: 20px;color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hideshowPrevGrossPay(this)');
+// }
+
+// function hideshowPrevGrossPay(e) {
+// 	$("#prevGrossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showPrevGrossPay(this)');
+// }
+
+
+// function showmonthlyGrossPay(e) {
+// 	$("#monthlyGrossPay").removeAttr('style').attr('style','margin-left: 9px; font-weight: bold; padding: 8px;');
+// 	$(e).removeAttr('style').attr('style','font-size: 20px;color: red');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','hidesmonthlyGrossPay(this)');
+// }
+
+// function hidesmonthlyGrossPay(e) {
+// 	$("#monthlyGrossPay").removeAttr('style').attr('style','margin-left: 0px; font-weight: bold; display: none');
+// 	$(e).removeAttr('style').attr('style','margin-left: 80px; font-size: 20px;color: blue');
+// 	$(e).attr('class','fa fa-money-bill');
+// 	$(e).attr('onclick','showmonthlyGrossPay(this)');
+// }
 
 function viewPayslipwithadj(payslip_id) {
 	$("#newRate").show();
@@ -343,7 +343,6 @@ function viewPayslipwithadj(payslip_id) {
 					$("#regDaysrate").html(payslipData[key]['RATE_17']);
 					$("#prevbasicadj").html(payslipData[key]['RATE_17']);
 					$("#ADJUSTMENTAMT").html(parseFloat(payslipData[key]['RATE_17'].replace(/,/g, '')) * parseFloat(payslipData[key]['REG DAYS ADJ']));
-1
 					$("#regdaysadj").html(payslipData[key]['REG DAYS ADJ']);
 					$("#regdaysadjrate").html(basicEarning['RATE_3']);
 					$("#regdaysamt").html(payslipData[key]['REG DAY ADJ AMOUNT']);
@@ -365,7 +364,6 @@ function viewPayslipwithadj(payslip_id) {
 					$("#regOT1").html(payslipData[key]['REGOTAMT_1']);
 					$("#regOTrate_1").html(payslipData[key]['RATE_1']);
 					$("#regOTAMT_1").html('0');
-					// $("#regOTAMT_1").html(payslipData[key]['REG OT AMT._1']);
 
 					$("#sunDRate").html(payslipData[key]['RATE_1']);
 					$("#sunDOTRate").html(payslipData[key]['RATE_2']);
@@ -441,8 +439,7 @@ function viewPayslipwithadj(payslip_id) {
 					$("#ABSENTRATE").html('-'+payslipData[key]['RATE_13']);
 
 					$("#LEGALPAYBDAYPAYS").html(payslipData[key]['RATE_13']);
-
-					$("#grossPay").html(basicEarning['GROSSPAY']);
+					$("#grossPayAll").html(basicEarning['GROSSPAY']);
 					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
 					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
 
@@ -709,6 +706,11 @@ function viewPayslipwithadj(payslip_id) {
 							$("#motorental").html(deductValues);
 						}
 
+						if (deductName == 'GROSSPAY') {
+							console.log(deductValues+'gp');
+							$("#grosspayAll").html(deductValues);
+						}
+
 					}
 
 					deducBody += '<tr><th>TOTAL DEDUCTIONS</th><th id="totalDeductions">'+totalDeduction+'</th></tr>';
@@ -731,12 +733,6 @@ function viewPayslipwithadj(payslip_id) {
 }
 
 function showPayslip(payslip_id, idnumber) {
-	
-	// $("#empName").html(name);
-	// $("#jobDescription").html(position);
-	// $("#idNumber").html(idnumber);
-	// $("#accntNum").html(account);
-	// $("#tinno").html(tinno);
 
 	$("#previosRateTbl").hide();
 	$("#previosRatelbl").hide();
@@ -766,7 +762,7 @@ function showPayslip(payslip_id, idnumber) {
 				var basicEarning = {};
 				if (payslipData[key]['ID'] == idnumber) {
 					for (const [key2, value] of Object.entries(payslipData[key])) {
-							var keyValue = key2.replace(/[^\w\s]/gi, '').replace(' ', '').toUpperCase();
+							var keyValue = key2.replace(/[^\w\s]/gi, '').replace('', '').toUpperCase();
 							basicEarning[keyValue] = value;
 					}
 					$("#empName").html(payslipData[key]['EMPLOYEE NAME']);
@@ -882,7 +878,8 @@ function showPayslip(payslip_id, idnumber) {
 					$("#ABSENTRATE").html('-'+payslipData[key]['RATE_13']);
 					$("#ABSENTRATEadj").html('-'+payslipData[key]['RATE_13']);
 
-					$("#grossPay").html(basicEarning['GROSSPAY']);
+					$("#grossPay").html(basicEarning['GROSS PAY']);
+					$("#grossPayAll").html(payslipData[key]['GROSS PAY']);
 					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
 					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
 
@@ -1016,6 +1013,10 @@ function showPayslip(payslip_id, idnumber) {
 						if (deductName == 'TOTALDEDUCTIONS') {
 							totalDeduction = deductValues;
 						}
+						if (deductName == 'GROSSPAY') {
+							console.log(deductValues+'----')
+							$("#grossPayAll").html(deductValues);
+						}
 
 						if (deductName == 'MOTORRENTALALLOW') {
 							$("#motorental").html(deductValues);
@@ -1040,12 +1041,6 @@ function showPayslip(payslip_id, idnumber) {
 }
 
 function showPayslipWithAdj(payslip_id, idnumber) {
-	
-	// $("#empName").html(name);
-	// $("#jobDescription").html(position);
-	// $("#idNumber").html(idnumber);
-	// $("#accntNum").html(account);
-	// $("#tinno").html(tinno);
 
 	$("#previosRateTbl").show();
 	$("#previosRatelbl").show();
@@ -1195,6 +1190,8 @@ function showPayslipWithAdj(payslip_id, idnumber) {
 					$("#LEGALPAYBDAYPAYSadj").html(payslipData[key]['RATE_13']);
 
 					$("#grossPay").html(basicEarning['GROSSPAY']);
+					$("#grossPayAll").html(payslipData[key]['GROSS PAY']);
+					// $("#grossPayAll").html(payslipData[key]['GROSS PAY']);
 					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
 					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
 
@@ -1647,6 +1644,7 @@ function viewPayslip(payslip_id) {
 					$("#ABSENTRATE").html('-'+payslipData[key]['RATE_13']);
 
 					$("#grossPay").html(basicEarning['GROSSPAY']);
+					$("#grossPayAll").html(basicEarning['GROSSPAY']);
 					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
 					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
 
