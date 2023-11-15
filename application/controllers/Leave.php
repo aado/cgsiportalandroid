@@ -232,6 +232,7 @@ class Leave extends CI_Controller
 		$this->load->view('template/header',$data);
 		$this->load->view('leave', $data);
 		$this->load->view('template/footer');
+		redirect('/profile');
 	}
 
 
