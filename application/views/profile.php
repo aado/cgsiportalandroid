@@ -163,7 +163,7 @@
 .btn-danger.btn-outline {
   margin-top: 9px;
   background-color: transparent;
-  color: #000;
+  color: #007bff;
   border-color: #000;
   padding:auto;
   padding:10px 0px 10px 0px;
@@ -388,25 +388,30 @@ textarea:hover {
       </thead> -->
       <tbody>
         <tr>
-          <th scope="row">Full Name</th>
+          <td>Full Name</td>
           <td><?=$fullname?></td>
           <!-- <td>Otto</td>
           <td>@mdo</td> -->
         </tr>
         <tr>
-          <th scope="row">Employee ID</th>
+        <td>Employee ID</td>
           <td><?=$idnumber?></td>
           <!-- <td>Thornton</td>
           <td>@fat</td> -->
         </tr>
+        <td>Date Hired</td>
+          <td><?=$getuserDetails[0]['date_hired']?></td>
+          <!-- <td>Thornton</td>
+          <td>@fat</td> -->
+        </tr>
         <tr>
-          <th scope="row">Birth Date</th>
+          <td>Birth Date</td>
           <td><?=isset($getuserDetails[0]['Birthdate'])? $getuserDetails[0]['Birthdate'] : ''?></td>
           <!-- <td>the Bird</td>
           <td>@twitter</td> -->
         </tr>
       <tr>
-          <th scope="row">Contact</th>
+          <td>Contact</td>
           <td><?=isset($getuserDetails[0]['contact_number'])? $getuserDetails[0]['contact_number']: ''?></td>
           <!-- <td>the Bird</td>
           <td>@twitter</td> -->
@@ -431,11 +436,11 @@ textarea:hover {
       <table class="table  table-borderless">
         <tbody>
           <tr>
-          <th scope="row">Department</th>
+          <td>Department</th>
           <td><?=$departmentname?></td>
           </tr>
           <tr>
-          <th scope="row">Designation</th>
+          <td>Designation</th>
           <td><?=$designation?></td>
           </tr>
         </tbody>

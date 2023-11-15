@@ -73,7 +73,7 @@ class Profile extends CI_Controller
 
 		$getuserDetails = $this->Profile_model->getuserDetails($sessionid);
 
-		//print_r($this->session->pass_tag);
+		// print_r($getuserDetails);
 		
 		$data = [
 			'page' => [
