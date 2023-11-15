@@ -8,7 +8,7 @@
 	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="background: #f8f9fc !important;padding-bottom: 30px;">
 		<!-- Page Heading -->
 		<!-- <h1 class="h3 mb-4 text-gray-800"><?= ($page['title'] ?? 'Undefined'); ?></h1> -->
 
@@ -24,7 +24,7 @@
 
 .text {
   font-family: sans-serif;
-  font-size: 40px;
+  font-size: 32px;
   position: absolute center;
   text-align: center;
   padding-left: 0%;
@@ -107,6 +107,13 @@
 }
 
 
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    margin-left: 25px;
+}
+
 
 
 
@@ -160,8 +167,9 @@
   border-color: #000;
   padding:auto;
   padding:10px 0px 10px 0px;
-  margin: 1px 5px 1px 0px;
-  width: 100%;
+  /* margin: 1px 5px 1px 0px; */
+	margin: 4px 10px 1px 32px;
+  width: 80%;
   text-align:center;
   font-family: sans-serif;
   font-weight: 300;
@@ -344,7 +352,7 @@ textarea:hover {
 <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'> -->
 <!-- </head> -->
 
-<div class="box" style="margin-top: 30%;">
+<div class="box" style="margin-top: 30%; background: #f8f9fc;">
   <div id="overlay">
 	<div class="image">
 	  <div class="trick">
@@ -369,7 +377,7 @@ textarea:hover {
       <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
 
-      <table class="table">
+      <table class="table table-borderless">
       <!-- <thead>
         <tr>
           <th scope="col">#</th>
@@ -420,7 +428,7 @@ textarea:hover {
       <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
 
-      <table class="table">
+      <table class="table  table-borderless">
         <tbody>
           <tr>
           <th scope="row">Department</th>
