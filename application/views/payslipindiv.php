@@ -585,7 +585,7 @@
 														</div> -->
 														<div class="gPay">
 															<div class="row" style="font-size:14px">
-																<span><span style="right: 297px;">GROSS PAY</span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="grossPayAll">d</span></span>
+																<span><span style="right: 297px;">GROSS PAY</span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="grossPayAll"></span><span style="font-weight: bold;cursor: pointer;float: right; margin-right: 25px;padding-bottom: 10px;" id="grossPayAllWithOut"></span></span>
 															</div>
 														</div>
 														<div class="netPay">
