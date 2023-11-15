@@ -762,9 +762,31 @@ function showPayslip(payslip_id, idnumber) {
 				var basicEarning = {};
 				if (payslipData[key]['ID'] == idnumber) {
 					for (const [key2, value] of Object.entries(payslipData[key])) {
-							var keyValue = key2.replace(/[^\w\s]/gi, '').replace('', '').toUpperCase();
-							basicEarning[keyValue] = value;
+						var keyValue = key2.replace(/[^\w\s]/gi, '').replace('', '').toUpperCase();
+						basicEarning[keyValue] = value;
+						
 					}
+
+					payslipData.forEach(function(item) {
+						Object.keys(item).forEach(function(key) {
+						  
+						  if(item['ID'] == idnumber) {
+							console.log("key:" + key.replace(' ','') + "value:" + item[key]);
+							// console.log(item['GROSSPAY']);
+							// $("#grossPayAllWithOut").html(item[key]);
+							// console.log(item[key]);
+							if(key.replace(' ','') == "GROSSPAY" || key.replace(' ','') === "GROSSPAY") {
+								console.log(item[key]);
+							}
+						  }
+						});
+					  });
+
+
+					
+					console.log(123);
+					console.log(basicEarning['"GROSS PAY"']);
+					$("#grossPayAllWithOut").html(basicEarning['GROSS PAY']);
 					$("#empName").html(payslipData[key]['EMPLOYEE NAME']);
 					$("#jobDescription").html(payslipData[key]['DESIGNATION']);
 					$("#idNumber").html(payslipData[key]['ID']);
@@ -802,7 +824,6 @@ function showPayslip(payslip_id, idnumber) {
 					$("#regOT1").html(payslipData[key]['REGOTAMT_1']);
 					$("#regOTrate_1").html(payslipData[key]['RATE']);
 					$("#regOTAMT_1").html('0');
-					// $("#regOTAMT_1").html(payslipData[key]['REG OT AMT._1']);
 
 					$("#sunDRate").html(payslipData[key]['RATE_1']);
 					$("#sunDOTRate").html(payslipData[key]['RATE_2']);
@@ -853,7 +874,6 @@ function showPayslip(payslip_id, idnumber) {
 					$("#SUNOTAMT").html(payslipData[key]['SUN OT AMT']);
 					$("#SUNLEGALAMT").html(payslipData[key]['SUN LEGAL AMT']);
 					$("#SUNLEGALOTAMT").html((payslipData[key]['SUN LEGAL OT AMT'] == '0.00')? '0':payslipData[key]['SUN LEGAL OT AMT']);
-					// $("#SUNLEGALOTAMT").html(payslipData[key]['SUN LEGAL OT AMT']);
 					$("#SPLDUTYAMT").html(payslipData[key]['SPL DUTY AMT']);
 					$("#SPLSUNOTAMT").html(payslipData[key]['SPL SUN OT AMT']);
 					$("#LEGALHOLDUTYAMT").html((payslipData[key]['LEGAL HOL  DUTY AMT'] == '0' || payslipData[key]['LEGAL HOL  DUTY AMT'] == '')? '0':payslipData[key]['LEGAL HOL  DUTY AMT']);
@@ -1013,10 +1033,13 @@ function showPayslip(payslip_id, idnumber) {
 						if (deductName == 'TOTALDEDUCTIONS') {
 							totalDeduction = deductValues;
 						}
-						if (deductName == 'GROSSPAY') {
-							console.log(deductValues+'----')
-							$("#grossPayAll").html(deductValues);
+						var grosspay = "GROSS PAY";
+						if(deductName.indexOf(grosspay) != -1){
+							$("#grossPayAllWithOut").show();
+							$("#grossPayAllWithOut").html(deductValues);
+							$("#grossPayAll").hide();
 						}
+
 
 						if (deductName == 'MOTORRENTALALLOW') {
 							$("#motorental").html(deductValues);
@@ -1189,9 +1212,10 @@ function showPayslipWithAdj(payslip_id, idnumber) {
 					$("#LEGALPAYBDAYPAYS").html(payslipData[key]['RATE_13']);
 					$("#LEGALPAYBDAYPAYSadj").html(payslipData[key]['RATE_13']);
 
-					$("#grossPay").html(basicEarning['GROSSPAY']);
+					$("#grossPay").html(payslipData[key]['GROSS PAY']);
 					$("#grossPayAll").html(payslipData[key]['GROSS PAY']);
-					// $("#grossPayAll").html(payslipData[key]['GROSS PAY']);
+					$("#grossPayAllWithOut").hide();
+					$("#grossPayAll").show();
 					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
 					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
 
@@ -1506,279 +1530,6 @@ function showPayslipBtn() {
 	$('#paySlipDiv').hide('slide', {direction: 'left'}, duration, function() {
         $('#paySlipTable').show(duration);});
 		$("#showPayrollbtn").hide();
-}
-
-function viewPayslip(payslip_id) {
-	$("#newrate").hide();
-	$("#lblnew").hide();
-	$.ajax({
-		url: 'viewPayslip',
-		type: 'GET',
-		data: {payslip_id: payslip_id},
-		error: function() {	
-			alert('Something is wrong');
-		},
-		success: function(data) {
-			var result = JSON.parse(data);
-			console.log(result);
-
-			$("#payPeriod").html(result['payroll_period']);
-			$("#pcutofflbl").html(result['payroll_period']);
-			// $("#pcutofflbl").html(result['payroll_period'].split(' ')[1]+' '+result['payroll_period'].split(' ')[2]+' '+result['payroll_period'].split(' ')[3]);
-
-			$("#payPeriod2").html(result['payroll_period']);
-			$("#pcutofflbl2").html(result['payroll_cutoff']);
-
-			var payslipData = JSON.parse(window.atob(result['payslipData']));
-			paysliptblInner = '';
-
-			
-			for(var key in payslipData) {
-				var ctr = 0;
-				var basicEarning = {};
-				if (payslipData[key]['ID'] == result['empid']) {
-					for (const [key2, value] of Object.entries(payslipData[key])) {
-							var keyValue = key2.replace(/[^\w\s]/gi, '').replace(' ', '').toUpperCase();
-							basicEarning[keyValue] = value;
-					}
-
-					for (const [deductions_name, deductValues] of Object.entries(payslipData[key])) {
-						var deductName = deductions_name.replace(' ', '').replace('/','').replace('.','').replace("'",'').replace('-','').replace("`\`",'').toUpperCase();
-						console.log(deductName +' = '+deductValues);
-					}
-
-					$("#jobDescription").html(basicEarning['DESIGNATION']);
-					$("#ABSENTUNDERTIME").html(basicEarning['ABSENTUNDERTIME']);
-					$("#LEGALPAYBDAYPAY").html(basicEarning['LEGALPAYBDAYPAY']);
-					$("#LEGALDUTY").html(basicEarning['RATE_9']);
-					$("#legHolyOTRate").html(basicEarning['RATE_10']);
-					$("#SUNDUTYAMT").html((basicEarning['SUNDUTYAMT'] == '0:00')? '0:00':basicEarning['SUNDUTYAMT']);
-					$("#regDays2").html(basicEarning['NOOFDAYS']);
-					$("#prevbasicpay").html(payslipData[key]['PREVIOUS BASIC PAY']);
-					$("#regDaysrate").html(basicEarning['RATE_13']);
-					$("#ADJUSTMENTAMT").html(parseFloat(basicEarning['RATE_13'].replace(/,/g,'')) * basicEarning['NOOFDAYS']);
-
-					$("#accntNum").html(payslipData[key]['ACCOUNT NUMBERS']);
-					$("#regDays").html(payslipData[key]['REG DAYS']);
-					$("#regDays_1").html(payslipData[key]['BASIC RATE']);
-					$("#basicPay").html(payslipData[key]['BASIC PAY']);
-					$("#basicRate").html(payslipData[key]['BASIC RATE']);
-					$("#regOT").html(payslipData[key]['REG. OT']);
-					$("#otRate").html(payslipData[key]['RATE']);
-					$("#regOTAMT").html(payslipData[key]['REG OT AMT.']);
-					$("#regOT1").html(payslipData[key]['REGOTAMT_1']);
-					$("#regOTrate_1").html(payslipData[key]['RATE']);
-					$("#regOTAMT_1").html('0');
-
-					$("#sunDRate").html(payslipData[key]['RATE_1']);
-					$("#sunDOTRate").html(payslipData[key]['RATE_2']);
-					$("#sunLRate").html(payslipData[key]['RATE_3']);
-					$("#sunLOTRate").html(payslipData[key]['RATE_4']);
-					$("#splDutyRate").html(payslipData[key]['RATE_5']);
-					$("#splDutyOTRate").html(payslipData[key]['RATE_6']);
-					$("#splSunOtRate").html(payslipData[key]['RATE_8']);
-
-					$("#sunDuty").html(payslipData[key]['SUN DUTY']);
-					$("#SUNOT").html(payslipData[key]['SUN OT']);
-					$("#SUNLEGALDUTY").html(payslipData[key]['SUN LEGAL DUTY']);
-					$("#SUNLEGALOT").html(payslipData[key]['SUN LEGAL OT']);
-					$("#SPECIALDUTY").html(payslipData[key]['SPECIAL DUTY']);
-					$("#SPECIALOT").html(payslipData[key]['SPECIAL OT']);
-					$("#SPLSUNOT").html(payslipData[key]['SPL SUN OT']);
-					$("#LEGALHOLDUTY").html(payslipData[key]['LEGAL HOL DUTY']);
-					$("#LEGALHOLOT").html(payslipData[key]['LEGAL HOL OT']);
-					$("#NP").html(payslipData[key]['NP']);
-					$("#ABSENT-undertime").html(payslipData[key]['ABSENT-undertime']);
-
-					$("#SUNLEGALDUTY1").html(payslipData[key]['SUN LEGAL DUTY_1']);
-					$("#sunLRate_1").html(payslipData[key]['RATE_17']);
-					$("#SUNLEGALAMT_1").html(payslipData[key]['SUN LEGAL AMT_1']);
-
-					$("#SUNLEGALOT_1").html(payslipData[key]['SUN LEGAL OT_1']);
-					$("#SUNLEGALOTrate_1").html(payslipData[key]['RATE_18']);
-					$("#SUNLEGALOTAMT_1").html(payslipData[key]['SUN LEGAL OT AMT._1']);
-					$("#SPECIALDUTY_1").html(payslipData[key]['SPECIAL DUTY_1']);
-					$("#splDutyRate_1").html(payslipData[key]['RATE_19']);
-					$("#SPLDUTYAMT_1").html(payslipData[key]['SPL DUTY AMT_1']);
-					$("#SPECIALOT_1").html(payslipData[key]['SPECIAL OT_1']);
-					$("#splDutyOTRate_1").html(payslipData[key]['RATE_20']);
-					$("#SPLOTAMT_1").html(payslipData[key]['SPL OT AMT_1']);
-					$("#SPLSUNOT_1").html(payslipData[key]['SPL SUN OT_1']);
-					$("#splSunOtRate_1").html(payslipData[key]['RATE_22']);
-					$("#SPLSUNOTAMT_1").html(payslipData[key]['SPL SUN OT AMT_1']);
-					$("#LEGALHOLDUTY_1").html((payslipData[key]['DUTY_1'] == '0.00')? '0':payslipData[key]['DUTY_1']);
-					$("#LEGALDUTYRATE_1").html(payslipData[key]['RATE_23']);
-					$("#LEGALHOLDUTYAMT_1").html(payslipData[key]['LEGAL HOL  DUTY AMT']);
-					$("#LEGALHOLOT_1").html((payslipData[key]['LEGAL HOL OT_1'] == '0.00')? '0':payslipData[key]['LEGAL HOL OT_1']);
-					$("#LEGALHOLOTRATE_1").html((payslipData[key]['RATE_24'] == '0.00')? '0':payslipData[key]['RATE_24']);
-					$("#LEGALHOLOTAMT_ 1").html(payslipData[key]['LEGAL HOL OT AMT']);
-					$("#NP_1").html(payslipData[key]['NP_1']);
-					$("#NPRATE_1").html(payslipData[key]['RATE_25']);
-					$("#NPAMT_1").html(payslipData[key]['NP AMT_1']);
-
-					$("#SUNOTAMT").html(payslipData[key]['SUN OT AMT']);
-					$("#SUNLEGALAMT").html(payslipData[key]['SUN LEGAL AMT']);
-					$("#SUNLEGALOTAMT").html((payslipData[key]['SUN LEGAL OT AMT'] == '0.00')? '0.00':payslipData[key]['SUN LEGAL OT AMT']);
-					// $("#SUNLEGALOTAMT").html(payslipData[key]['SUN LEGAL OT AMT']);
-					$("#SPLDUTYAMT").html(payslipData[key]['SPL DUTY AMT']);
-					$("#SPLSUNOTAMT").html(payslipData[key]['SPL SUN OT AMT']);
-					$("#LEGALHOLDUTYAMT").html(payslipData[key]['LEGAL HOL  DUTY AMT']);
-					$("#SPLOTAMT").html((payslipData[key]['SPL OT AMT'] == '0.00')? '0.00':payslipData[key]['SPL OT AMT']);
-					$("#SPLOTAMT").html((payslipData[key]['SPL OT AMT'] == '0.00')?'0.00':payslipData[key]['SPL OT AMT']);
-					$("#LEGALHOLOTAMT").html((payslipData[key]['LEGAL HOL  OT AMT'] == '0.00')?'0.00':payslipData[key]['LEGAL HOL  OT AMT']);
-					$("#NPAMT").html((payslipData[key]['NP AMT'] == '0.00')?'0.00':payslipData[key]['NP AMT']);
-					$("#LATEAMT").html((payslipData[key]['LATE AMT'] == '0.00')?'0.00':payslipData[key]['LATE AMT']);
-					
-					$("#sunDuty1").html(payslipData[key]['SUNDUTY_1']);
-
-					$("#SUNOT1").html(payslipData[key]['SUN OT_1']); 
-					$("#sunDutyrate_1").html(payslipData[key]['RATE_15']);
-					$("#SUNDUTYAMT_1").html(payslipData[key]['SUNDUTYAMT_1']);
-					$("#SUNOTRate2").html(payslipData[key]['RATE_16']);
-					$("#SUNOTAMOUNT").html(payslipData[key]['SUNOTAMOUNT']);
-
-					$("#ABSAMOUNT").html((payslipData[key]['ABS AMOUNT'] == '0.00')?'0.00':payslipData[key]['ABS AMOUNT']);
-
-					$("#ADJUSTMENT").html(payslipData[key]['RATE_7']);
-					$("#NPRATE").html(payslipData[key]['RATE_11']);
-					$("#ABSENTRATE").html('-'+payslipData[key]['RATE_13']);
-
-					$("#grossPay").html(basicEarning['GROSSPAY']);
-					$("#grossPayAll").html(basicEarning['GROSSPAY']);
-					$("#prevGrossPay").html(payslipData[key]['PREVIOUS GROSS PAY']);
-					$("#monthlyGrossPay").html(payslipData[key]['TOTAL MONTHLY GROSS']);
-
-					$("#late").html(payslipData[key]['LATE']);
-					$("#lateRate").html('-'+payslipData[key]['RATE_12']);
-					$("#NETPAY").html(payslipData[key]['NET PAY']);
-					$("#mealallow").html(payslipData[key]['MEAL ALLOW']);
-					$("#motorental").html(payslipData[key]['MOTOR RENTAL_ALLOW']);
-					$("#13THMONTHADJUSTMENT").html(payslipData[key]['13th month adjustment']);
-					$("#VLpay").html(payslipData[key]['VL pay']);
-					
-					// ADJUSTMENT
-					x = 14;
-					for (i = 2; i <= 8; i++) {
-						$("#adjustment"+i).html(payslipData[key]['RATE_'+x++]);
-					}
-					$("#adjustment9").html(basicEarning['RATE_7']);
-					// RATE ADJUSTMENT 
-					x = 22;
-					for (i = 10; i <= 12; i++) {
-						$("#adjustment"+i).html(payslipData[key]['RATE_'+x++]);
-					}
-					$("#adjustment13").html(payslipData[key]['LEGAL PAY-B-DAY PAY']);
-					$("#adjustment14").html(payslipData[key]['RATE_25']);
-					
-					var deducBody = '<tr><th colspan="2" style="text-align: center">DEDUCTIONS</th></tr>';
-					var totalDeduction = 0;
-					var ctr = 0;
-					console.log(payslipData[key]);
-					for (const [deductions_name, deductValues] of Object.entries(payslipData[key])) {
-						// console.log(deductions_name);
-						var deductName = deductions_name.replace(' ', '').replace('/','').replace('.','').replace("'",'').replace('-','').replace("`\`",'').toUpperCase();
-						console.log(deductName);
-
-						if (deductName == 'SSS' || deductName == 'SSSLOAN' || deductName == 'PHILHEALTH' || deductName == 'PAGIBIG' || deductName == 'SSSCALAMITYLOAN' || deductName == 'PAGIBIGLOAN' ||	deductName == 'PAGIBIGCALAMITYLOAN' || deductName == 'INSURANCE' || deductName == 'PERSONALDED' || deductName == 'EMPLOYEESSAVINGS' || deductName == 'AUBLOANOVERDUE' || deductName == 'UPLOAN' || deductName == 'EYEGLASSES' || deductName == 'ISURANCEIDANDMEMBERSHIPFEE' || deductName == 'ECQCASHADVANCES' || deductName == 'AUBLOAN' || deductName == 'PHILENSURE(DEPENDENTS)' || deductName == 'MOTORRENTALFORADJUNBILLEDPAYROLL' || deductName == 'COCOLIFE' || deductName == 'PAGIBIGMP2' || deductName == 'WITHHOLDINGTAX' || deductName == 'MP2' || deductName == 'PAGIBIGHOUSINGLOAN' || deductName == 'ADMINUNIFORMSADDITIONAL' || deductName == 'BADMINTONRACKET' || deductName == 'MOTORRENTALFORADJ' || deductName == "EYEGLASSESS" || deductName == "INSURANCEMEMBERSHIPFEE") {
-							deducBody += '<tr>';
-							deducBody += '<td>'+deductName+'</td>';
-							deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-						var str2 = "CASHASSISTANCE";
-						if(deductName.indexOf(str2) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var giftWedding = "CASHGIFTWEDDING";
-						if(deductName.indexOf(giftWedding) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var giftWedding2 = "CASHWEDDINGGIFT";
-						if(deductName.indexOf(giftWedding2) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var cashAdvance = "CASHADVANCE";
-						if(deductName.indexOf(cashAdvance) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var pagibigHousing = "PAGIBIGCALAMITY";
-						if(deductName.indexOf(pagibigHousing) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var bdayPay = "BDAYPAY";
-						if(deductName.indexOf(bdayPay) != -1){
-							console.log('bdy'+deductValues);
-							$("#LEGALPAYBDAYPAYAMT").html(deductValues);
-							if(deductValues > 0) {
-								$("#LEGALPAYBDAYPAYCount").html(1);
-							} else {
-								$("#LEGALPAYBDAYPAYCount").html(0);
-							}
-						}
-
-						var funrun = "FUNRUN";
-						if(deductName.indexOf(funrun) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						var others = "OTHERS";
-						if(deductName.indexOf(others) != -1){
-							deducBody += '<tr>';
-								deducBody += '<td>'+deductName+'</td>';
-								deducBody += '<td>'+deductValues+'</td>';
-							deducBody += '</tr>';
-						}
-
-						if (deductName == 'TOTALDEDUCTIONS') {
-							totalDeduction = deductValues;
-						}
-
-						if (deductName == 'MOTORRENTALALLOW') {
-							$("#motorental").html(deductValues);
-						}
-
-					}
-
-					deducBody += '<tr><th>TOTAL DEDUCTIONS</th><th id="totalDeductions">'+totalDeduction+'</th></tr>';
-						$("#deductions").html(deducBody);
-				}
-			}
-		}
-	});
-
-	$('#searchPayslip').keyup(function() {
-		var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-		
-		$("#payslipTbl").find('tbody').find('tr').show().filter(function() {
-			var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-			return !~text.indexOf(val);
-		}).hide();
-	});
-
-
 }
 
 function getBusinessDatesCount(startDate, endDate) {
